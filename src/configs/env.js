@@ -1,5 +1,5 @@
 const env = {
-    SERVER_URL: 'https://qa-backend-hxbh.onrender.com/api/core/v01',
+    SERVER_URL: 'https://qa-backend-hxbh.onrender.com/e-learning-portal/api/core/v01',
     QS_MAIN: [
         {
           title: 'Question 1',
