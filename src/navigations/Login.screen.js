@@ -68,7 +68,7 @@ const LoginScreen = () => {
     signInWithPopup(auth, provider).then(async (data) => {
       const email = data.user.email;
       try {
-        const response = await fetch(`${env.SERVER_URL}auth/student/${email}`);
+        const response = await fetch(`${env.SERVER_URL}/auth/student/${email}`);
         if (response.ok) {
           const result = await response.json();
           console.log(response);
