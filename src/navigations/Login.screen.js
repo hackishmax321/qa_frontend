@@ -52,7 +52,7 @@ const LoginScreen = () => {
       if (response.ok) {
         const result = await response.json();
         console.log(result);
-        localStorage.setItem('username', result.email);
+        localStorage.setItem('username', email);
         Notiflix.Notify.success('Login successful');
         navigate('/dashboard');
       } else {
