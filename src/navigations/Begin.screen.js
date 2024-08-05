@@ -5,6 +5,7 @@ import env from '../configs/env';
 const BeginScreen = () => {
   const navigate = useNavigate();
   const [questionnaire, setQuestionaire] = useState(env.QS_MAIN)
+  const [ survey, setSuevey ] = useState(false)
 
   const startQuestionnaire = () => {
     navigate('/questionnaire', { state: { questionnaire } });
@@ -20,14 +21,16 @@ const BeginScreen = () => {
             {questionnaire.length}
           </div>
         </div>
-        <div className="card-content">
+        {survey?<div className="card-content">
+          You already attepmt the Survey
+        </div>:<div className="card-content">
           Haven't Attempted Survey yet!
-        </div>
+        </div>}
       </div>
       <br />
       <div className="button-container">
         <button onClick={startQuestionnaire} className="button button-long login-button no-underline">
-          Start Now
+          {survey?'Attempt Again':'Start Now'}
         </button>
       </div>
       <p className="signup-prompt">See <Link to="/dashboard" className="signup-link">Instructions</Link></p>

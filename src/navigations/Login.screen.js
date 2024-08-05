@@ -51,6 +51,7 @@ const LoginScreen = () => {
 
       if (response.ok) {
         const result = await response.json();
+        console.log(result);
         localStorage.setItem('username', result.email);
         Notiflix.Notify.success('Login successful');
         navigate('/dashboard');
@@ -121,9 +122,9 @@ const LoginScreen = () => {
           Login with Google
         </button>
       </div>
-      <p className="signup-prompt">
+      {/* <p className="signup-prompt">
         Don't have an account? <Link to="/create-account" className="signup-link">Sign up</Link>
-      </p>
+      </p> */}
     </div>
   );
 };

@@ -4,13 +4,19 @@ import Notiflix from 'notiflix';
 import axios from 'axios';
 import env from '../configs/env';
 
-
 const CreateAccount = () => {
-  const [email, setEmail] = useState(localStorage.getItem('username')||'');
+  const [email, setEmail] = useState(localStorage.getItem('username') || '');
+  const [fullName, setFullName] = useState('');
+  const [address, setAddress] = useState('');
+  const [dob, setDob] = useState('');
+  const [age, setAge] = useState('');
+  const [gender, setGender] = useState('');
+  const [country, setCountry] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [university, setUniversity] = useState('');
   const [universityId, setUniversityId] = useState('');
-  const [input01, setInput01] = useState('');
+  const [contactNumber, setContactNumber] = useState('');
   const [password, setPassword] = useState('');
   const [retypePassword, setRetypePassword] = useState('');
   const [agreement, setAgreement] = useState(false);
@@ -23,19 +29,52 @@ const CreateAccount = () => {
   };
 
   const validatePassword = (password) => {
-    return password.length >= 6;
+    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    return re.test(String(password));
+  };
+
+  const validateContact = (contact) => {
+    return contact.length === 10;
+  };
+
+  const calculateAge = (dob) => {
+    const today = new Date();
+    const birthDate = new Date(dob);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  };
+
+  const generateOTP = () => {
+    return Math.floor(10000 + Math.random() * 90000).toString();
+  };
+
+  const sendOTP = async (mobile, code) => {
+    const message = `Your OTP code is ${code}.`;
+    await fetch(`https://app.notify.lk/api/v1/send?user_id=23201&api_key=aElC8iVmQG05Aqk60tWj&sender_id=NotifyDEMO&to=+94${mobile.substring(1)}&message=${message}`)
+      .then((response) => {
+        console.log(response);
+      });
   };
 
   const submitAction = (event) => {
     event.preventDefault();
-
+    
     if (!validateEmail(email)) {
       Notiflix.Notify.failure('Invalid email address');
       return;
     }
 
-    if (!firstName || !email || !password) {
-      Notiflix.Notify.failure('Email, First Name, and Password fields cannot be empty');
+    if (!fullName || !email || !password || !dob || !gender || !country || !address) {
+      Notiflix.Notify.failure('All fields are required');
+      return;
+    }
+
+    if (!validateContact(contactNumber)) {
+      Notiflix.Notify.failure('Contact Number needs to be 10 characters');
       return;
     }
 
@@ -45,7 +84,7 @@ const CreateAccount = () => {
     }
 
     if (!validatePassword(password)) {
-      Notiflix.Notify.failure('Password must be at least 6 characters');
+      Notiflix.Notify.failure('Password must be at least 8 characters and include uppercase, lowercase, digit, and special character');
       return;
     }
 
@@ -53,30 +92,41 @@ const CreateAccount = () => {
       Notiflix.Notify.failure('You must accept the agreement');
       return;
     }
-
+    console.log("Hii");
     // If all validations pass
-    axios.post(env.SERVER_URL+'/auth/register', {
+    axios.post(`${env.SERVER_URL}/auth/register`, {
       email: email,
       password: password,
+      fullName: fullName,
+      address: address,
+      dob: dob,
+      age: age,
+      gender: gender,
+      country: country,
       firstName: firstName,
       lastName: lastName,
+      university,
       universityId: universityId,
-      placeholder: input01
+      placeholder: contactNumber
     })
     .then(response => {
-      console.log(response.satus)
-      localStorage.setItem('username', email)
+      console.log("ASS");
+      const otp = generateOTP();
+      sendOTP(contactNumber, otp);
+      localStorage.setItem('username', email);
+      localStorage.setItem('otp', otp);
       Notiflix.Notify.success('Account created successfully!');
-      navigate('/confirmation');
+      navigate('/validation');
     })
     .catch(error => {
       console.error('Error:', error);
+      Notiflix.Notify.failure('Account creation failed');
     });
-    
   };
 
   return (
-    <div className="container">
+    <div className="container container-long">
+      <br></br>
       <h1 className="title">Create Account</h1>
       <p className="subtitle">Join with Us</p>
       <form className="form" onSubmit={submitAction}>
@@ -105,6 +155,64 @@ const CreateAccount = () => {
         </div>
         <input
           type="text"
+          placeholder="FULL NAME"
+          className="input-field"
+          value={fullName}
+          onChange={(e) => setFullName(e.target.value)}
+        />
+        <div className="name-container">
+          <input
+            type="date"
+            placeholder="DATE OF BIRTH"
+            className="input-field half-width"
+            value={dob}
+            onChange={(e) => {
+              setDob(e.target.value);
+              setAge(calculateAge(e.target.value));
+            }}
+          />
+          <input
+            type="text"
+            placeholder="AGE"
+            className="input-field half-width"
+            value={age}
+            readOnly
+          />
+        </div>
+        <select
+          className="input-field"
+          value={gender}
+          onChange={(e) => setGender(e.target.value)}
+        >
+          <option value="" disabled>SELECT GENDER</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <input
+          type="text"
+          placeholder="ADDRESS"
+          className="input-field"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+        />
+        
+        <input
+          type="text"
+          placeholder="COUNTRY"
+          className="input-field"
+          value={country}
+          onChange={(e) => setCountry(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="UNIVERSITY"
+          className="input-field"
+          value={university}
+          onChange={(e) => setUniversity(e.target.value)}
+        />
+        <input
+          type="text"
           placeholder="UNIVERSITY ID"
           className="input-field"
           value={universityId}
@@ -112,10 +220,10 @@ const CreateAccount = () => {
         />
         <input
           type="text"
-          placeholder="INPUT 01"
+          placeholder="CONTACT NUMBER"
           className="input-field"
-          value={input01}
-          onChange={(e) => setInput01(e.target.value)}
+          value={contactNumber}
+          onChange={(e) => setContactNumber(e.target.value)}
         />
         <div className="password-container">
           <input
@@ -127,7 +235,7 @@ const CreateAccount = () => {
           />
           <input
             type="password"
-            placeholder="RETYPE"
+            placeholder="RETYPE PASSWORD"
             className="input-field half-width"
             value={retypePassword}
             onChange={(e) => setRetypePassword(e.target.value)}
@@ -145,7 +253,7 @@ const CreateAccount = () => {
         </div>
         <button type="submit" className="submit-button">Sign up</button>
       </form>
-      <p className="login-prompt">Already have an account. <Link to={'/login'} className="signup-link">Access Here.</Link></p>
+      <p className="login-prompt">Already have an account? <Link to={'/login'} className="signup-link">Access Here.</Link></p>
     </div>
   );
 };

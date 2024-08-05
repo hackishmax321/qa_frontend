@@ -45,6 +45,8 @@ const QuestionnaireScreen = () => {
   const currentQuestion = questionnaire[currentQuestionIndex];
   const selectedAnswerIndex = answers[currentQuestionIndex];
 
+  const isNextDisabled = selectedAnswerIndex === null;
+
   return (
     <div className="container">
       <h1 className="title">Question {currentQuestionIndex + 1}</h1>
@@ -67,9 +69,9 @@ const QuestionnaireScreen = () => {
       <div className="navigation">
         <button onClick={handleBack} disabled={currentQuestionIndex === 0}>Back</button>
         {currentQuestionIndex < questionnaire.length - 1 ? (
-          <button onClick={handleNext}>Next</button>
+          <button onClick={handleNext} disabled={isNextDisabled}>Next</button>
         ) : (
-          <button onClick={handleFinish}>Finish</button>
+          <button onClick={handleFinish} disabled={isNextDisabled}>Finish</button>
         )}
       </div>
       <p className="progress">{currentQuestionIndex + 1} out of {questionnaire.length}</p>
