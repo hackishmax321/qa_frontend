@@ -130,9 +130,9 @@ const LoginScreen = () => {
           Login with Google
         </button>
       </div>
-      {/* <p className="signup-prompt">
+      <p className="signup-prompt">
         Don't have an account? <Link to="/create-account" className="signup-link">Sign up</Link>
-      </p> */}
+      </p>
     </div>
   );
 };

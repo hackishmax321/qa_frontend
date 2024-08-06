@@ -68,7 +68,7 @@ const CreateAccount = () => {
       return;
     }
 
-    if (!fullName || !email || !password || !dob || !gender || !country || !address) {
+    if ( !email || !password || !dob || !gender || !country || !address) {
       Notiflix.Notify.failure('All fields are required');
       return;
     }
@@ -154,13 +154,13 @@ const CreateAccount = () => {
             onChange={(e) => setLastName(e.target.value)}
           />
         </div>
-        <input
+        {/* <input
           type="text"
           placeholder="FULL NAME"
           className="input-field"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
-        />
+        /> */}
         <div className="name-container">
           <input
             type="date"
