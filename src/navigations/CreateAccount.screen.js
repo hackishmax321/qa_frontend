@@ -114,6 +114,7 @@ const CreateAccount = () => {
       const otp = generateOTP();
       sendOTP(contactNumber, otp);
       localStorage.setItem('username', email);
+      localStorage.setItem('passed', "Not Passed");
       localStorage.setItem('otp', otp);
       Notiflix.Notify.success('Account created successfully!');
       navigate('/validation');

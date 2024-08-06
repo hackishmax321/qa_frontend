@@ -51,10 +51,18 @@ const LoginScreen = () => {
 
       if (response.ok) {
         const result = await response.json();
-        console.log(result);
+        console.log(result.student);
+        console.log(result.student.status);
         localStorage.setItem('username', email);
+        localStorage.setItem('passed', result.student.status);
         Notiflix.Notify.success('Login successful');
-        navigate('/dashboard');
+
+        if(result.student.status=="Passed") {
+          navigate('/dashboard');
+        } else {
+          navigate('/quest-begin');
+        }
+        
       } else {
         const error = await response.json();
         Notiflix.Notify.failure(error.message || 'Login failed');
