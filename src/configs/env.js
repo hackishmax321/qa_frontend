@@ -2,6 +2,7 @@ const env = {
     SERVER_URL: 'https://qa-backend-hxbh.onrender.com/e-learning-portal/api/core/v01',
 
     // 'https://qa-backend-hxbh.onrender.com/e-learning-portal/api/core/v01'
+    // 'http://localhost:5000/e-learning-portal/api/core/v01'
 
     QS_MAIN: [
         {

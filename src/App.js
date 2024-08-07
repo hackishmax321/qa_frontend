@@ -13,6 +13,7 @@ import EndScreen from './navigations/End.screen';
 import OTPVerification from './navigations/OTPVerification.screen';
 import CompleteAccountScreen from './navigations/CompleteAccount.screen';
 import InstructionsScreen from './navigations/Instructions.screen';
+import ResetPasswordScreen from './navigations/ResetPassword.screen';
 
 function App() {
   const [redirectRoute, setRedirectRoute] = useState('/landing');
@@ -43,6 +44,7 @@ function App() {
           <Route path="/instructions" element={<InstructionsScreen />} />
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/forgot-password" element={<ForgotPasswordScreen />} />
+          <Route path="/reset-password" element={<ResetPasswordScreen />} />
           <Route path="/validation" element={<OTPVerification />} />
           <Route path="/confirmation" element={<ConfirmationScreen />} />
           <Route path="/quest-begin" element={<BeginScreen />} /> 

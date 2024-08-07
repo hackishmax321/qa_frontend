@@ -11,6 +11,7 @@ const LoginScreen = () => {
   const [value, setValue] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const checkSession = () => {
     setValue(localStorage.getItem('username'));
@@ -39,6 +40,8 @@ const LoginScreen = () => {
       Notiflix.Notify.failure('Password must be at least 6 characters');
       return;
     }
+
+    setLoading(true);
 
     try {
       const response = await fetch(`${env.SERVER_URL}/auth/login`, {
@@ -70,6 +73,8 @@ const LoginScreen = () => {
     } catch (error) {
       console.error(error);
       Notiflix.Notify.failure('Server error');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -121,7 +126,15 @@ const LoginScreen = () => {
         <p className="signup-prompt">
           Forgot Password? <Link to="/forgot-password" className="signup-link">Get Help</Link>
         </p>
-        <button type="submit" className="submit-button">Login</button>
+        <button type="submit" className="submit-button" disabled={loading}>
+          {loading ? (
+            <div className="loading-icon">
+              <div className="spinner"></div>
+            </div>
+          ) : (
+            'Login'
+          )}
+        </button>
       </form>
       <p className="or">OR</p>
       <div className="social-login-container" onClick={onGoogleLogin}>

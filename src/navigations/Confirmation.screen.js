@@ -7,7 +7,7 @@ const ConfirmationScreen = () => {
   const [passed, setPassed] = useState(false);
 
   const checkPass = () => {
-
+    if(localStorage.getItem('passed')=="Passed") setPassed(true)
   }
 
   useEffect(() => {

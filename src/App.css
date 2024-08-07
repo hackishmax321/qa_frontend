@@ -407,3 +407,47 @@ button:disabled {
   margin-bottom: 10px;
   font-size: 1em;
 }
+
+.otp-container {
+  display: flex;
+  justify-content: center; /* Centers items horizontally */
+  align-items: center; /* Centers items vertically */
+  align-content: center;
+  gap: 10px; /* Adds space between the input and button */
+  width: 100%;
+}
+
+.otp-input {
+  flex: 1; 
+  margin-bottom: 0;
+}
+
+.otp-button {
+  white-space: nowrap; /* Prevents the button text from wrapping */
+}
+
+/* Spinner  */
+
+.loading-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-icon .spinner {
+  border: 4px solid rgba(238, 234, 234, 0.9);
+  border-left-color: #000;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

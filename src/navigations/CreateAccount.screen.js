@@ -29,7 +29,7 @@ const CreateAccount = () => {
   };
 
   const validatePassword = (password) => {
-    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return re.test(String(password));
   };
 
@@ -58,6 +58,29 @@ const CreateAccount = () => {
       .then((response) => {
         console.log(response);
       });
+  };
+
+  const submitOTP = async (otp) => {
+    
+    try {
+      const response = await fetch(env.SERVER_URL + '/auth/forgot-password', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, otp }),
+      });
+
+      if (response.ok) {
+        Notiflix.Notify.success('OTP was sent to your email');
+      } else {
+        const error = await response.json();
+        Notiflix.Notify.failure(error.message || 'Failed to send OTP');
+      }
+    } catch (error) {
+      console.error(error);
+      Notiflix.Notify.failure('Server error');
+    }
   };
 
   const submitAction = (event) => {
@@ -110,9 +133,9 @@ const CreateAccount = () => {
       placeholder: contactNumber
     })
     .then(response => {
-      console.log("ASS");
       const otp = generateOTP();
-      sendOTP(contactNumber, otp);
+      // sendOTP(contactNumber, otp);
+      submitOTP(otp);
       localStorage.setItem('username', email);
       localStorage.setItem('passed', "Not Passed");
       localStorage.setItem('otp', otp);
