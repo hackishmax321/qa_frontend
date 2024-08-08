@@ -451,3 +451,7 @@ button:disabled {
     transform: rotate(360deg);
   }
 }
+
+.card-container .warrning {
+  background-color: var(--warning);
+}

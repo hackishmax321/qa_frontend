@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import env from '../configs/env';
 
 const BeginScreen = () => {
   const navigate = useNavigate();
-  const [questionnaire, setQuestionaire] = useState(env.QS_MAIN)
-  const [ survey, setSuevey ] = useState(false)
+  const [questionnaire, setQuestionnaire] = useState(env.QS_MAIN);
+  const [survey, setSurvey] = useState(false);
+  const [completedCount, setCompletedCount] = useState(0);
+  const totalQuestions = 82;
+
+  useEffect(() => {
+    const savedAnswers = localStorage.getItem('answers');
+    if (savedAnswers) {
+      const answers = JSON.parse(savedAnswers);
+      const completed = answers.filter(answer => answer !== null).length;
+      setCompletedCount(completed);
+      setSurvey(completed > 0);  // Determine if the survey has been attempted
+    }
+  }, []);
 
   const startQuestionnaire = () => {
     navigate('/questionnaire', { state: { questionnaire } });
@@ -21,16 +33,36 @@ const BeginScreen = () => {
             {questionnaire.length}
           </div>
         </div>
-        {survey?<div className="card-content">
-          You already attepmt the Survey
-        </div>:<div className="card-content">
-          Haven't Attempted Survey yet!
-        </div>}
+        <div className="card-content">
+          {survey ? 'You already attempted the Survey' : "Haven't Attempted Survey yet!"}
+        </div>
       </div>
+      <br />
+      {completedCount!=0&&<div className="card-container">
+        <div className="google-button ">
+          <div className="number warning">
+            {completedCount}
+          </div>
+        </div>
+        <div className="card-content">
+          Completed Questions
+        </div>
+      </div>}
+      <br />
+      {completedCount!=0&&<div className="card-container">
+        <div className="google-button">
+          <div className="number warning">
+            {totalQuestions - completedCount}
+          </div>
+        </div>
+        <div className="card-content">
+          Remaining Questions
+        </div>
+      </div>}
       <br />
       <div className="button-container">
         <button onClick={startQuestionnaire} className="button button-long login-button no-underline">
-          {survey?'Attempt Again':'Start Now'}
+          {survey ? 'Attempt Again' : 'Start Now'}
         </button>
       </div>
       <p className="signup-prompt">See <Link to="/dashboard" className="signup-link">Instructions</Link></p>

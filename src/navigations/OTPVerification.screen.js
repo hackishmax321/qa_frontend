@@ -28,7 +28,7 @@ const OTPVerification = () => {
 
   return (
     <div className="container">
-      <h1 className="title">OTP Verification {otp}</h1>
+      <h1 className="title">OTP Verification</h1>
       <form className="form" onSubmit={handleSubmit}>
         <input
           type="text"
