@@ -143,8 +143,7 @@ const CreateAccount = () => {
       navigate('/validation');
     })
     .catch(error => {
-      console.error('Error:', error);
-      Notiflix.Notify.failure('Account creation failed');
+      Notiflix.Notify.failure(error.response.data.message||'Account creation failed');
     });
   };
 
