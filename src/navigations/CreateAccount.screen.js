@@ -63,7 +63,7 @@ const CreateAccount = () => {
   const submitOTP = async (otp) => {
     
     try {
-      const response = await fetch(env.SERVER_URL + '/auth/forgot-password', {
+      const response = await fetch(env.SERVER_URL + '/auth/account-confirm', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

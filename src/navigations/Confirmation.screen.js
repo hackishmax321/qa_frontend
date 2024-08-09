@@ -20,10 +20,10 @@ const ConfirmationScreen = () => {
   return (
     <div className="container">
       
-      <h1 className="title">Confirmation</h1>
-      <p className="subtitle">
+      <h1 className="title">Survey Status</h1>
+      {/* <p className="subtitle">
         You account status.
-      </p>
+      </p> */}
       <div className="card-container">
         <div className='google-button'>
           <FaNetworkWired className="icon" />

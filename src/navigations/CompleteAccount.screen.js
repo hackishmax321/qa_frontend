@@ -26,7 +26,7 @@ const CompleteAccountScreen = () => {
       <div className="button-container">
         <Link to="/instructions" className="button button-long login-button no-underline">Instructions</Link>
       </div>
-      <p className="signup-prompt">To <Link to="/" className="signup-link">Go Back</Link></p>
+      {/* <p className="signup-prompt">To <Link to="/" className="signup-link">Go Back</Link></p> */}
     </div>
   );
 };

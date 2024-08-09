@@ -10,13 +10,14 @@ const EndScreen = () => {
   const completedCount = answers.filter(answer => answer !== null).length;
 
   const startQuestionnaire = () => {
-    navigate('/questionnaire', { state: { questionnaire } });
+    // navigate('/questionnaire', { state: { questionnaire } });
+    navigate('/dashboard')
   };
 
   return (
     <div className="container">
       <h1 className="title">Survey Completion</h1>
-      <p className="subtitle">Survey includes the following important details.</p>
+      {/* <p className="subtitle">Survey includes the following important details.</p> */}
       <div className="card-container">
         <div className="google-button">
           <div className="number">
@@ -30,10 +31,10 @@ const EndScreen = () => {
       <br />
       <div className="button-container">
         <button onClick={startQuestionnaire} className="button button-long login-button no-underline">
-          Continue Survey
+          Proceed to Dashboard
         </button>
       </div>
-      <p className="signup-prompt">See <Link to="/dashboard" className="signup-link">Instructions</Link></p>
+      {/* <p className="signup-prompt">See <Link to="/dashboard" className="signup-link">Instructions</Link></p> */}
     </div>
   );
 };

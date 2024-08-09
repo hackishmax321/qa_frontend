@@ -25,18 +25,18 @@ const BeginScreen = () => {
 
   return (
     <div className="container">
-      <h1 className="title">Survey</h1>
-      <p className="subtitle">Survey includes the following important details.</p>
-      <div className="card-container">
+      <h1 className="title">Survey Status</h1>
+      {/* <p className="subtitle">Survey includes the following important details.</p> */}
+      {completedCount==0&&<div className="card-container">
         <div className="google-button">
           <div className="number">
             {questionnaire.length}
           </div>
         </div>
         <div className="card-content">
-          {survey ? 'You already attempted the Survey' : "Haven't Attempted Survey yet!"}
+          {survey ? 'Total Available Questions' : "Total Available Questions"}
         </div>
-      </div>
+      </div>}
       <br />
       {completedCount!=0&&<div className="card-container">
         <div className="google-button ">
@@ -62,10 +62,10 @@ const BeginScreen = () => {
       <br />
       <div className="button-container">
         <button onClick={startQuestionnaire} className="button button-long login-button no-underline">
-          {survey ? 'Attempt Again' : 'Start Now'}
+          Let's complete the Survey
         </button>
       </div>
-      <p className="signup-prompt">See <Link to="/dashboard" className="signup-link">Instructions</Link></p>
+      {/* <p className="signup-prompt">See <Link to="/dashboard" className="signup-link">Instructions</Link></p> */}
     </div>
   );
 };
