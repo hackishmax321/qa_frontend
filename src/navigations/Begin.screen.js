@@ -45,7 +45,7 @@ const BeginScreen = () => {
           </div>
         </div>
         <div className="card-content">
-          Completed Questions
+          Remaining Questions
         </div>
       </div>}
       <br />
@@ -56,7 +56,7 @@ const BeginScreen = () => {
           </div>
         </div>
         <div className="card-content">
-          Remaining Questions
+          Completed Questions
         </div>
       </div>}
       <br />
