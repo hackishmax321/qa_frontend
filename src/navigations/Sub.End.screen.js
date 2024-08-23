@@ -54,13 +54,14 @@ const SubEndScreen = () => {
 
     let current = gradesType.indexOf(category)
     let pointValue = 0;
-    console.log(current)
-    if(current) {
+    console.log('CURRENT', current)
+    if(current||current==0) {
       pointValue = pointsArray[current];
     } else {
       current = 1;
       pointValue = pointsArray[current];
     }
+    console.log('CURRENT', current)
   
     for (let i = 0; i < answers.length; i++) {
       // Add 1 to each non-null answer, or replace null with 0
@@ -74,13 +75,16 @@ const SubEndScreen = () => {
     console.log(marks)
     let score = pointsArray[current] / marks;
     console.log(level)
+    console.log("Score",score)
 
     if(level==="intermediate"){
+      console.log("F1")
       if (score > 0.8) {
+        console.log("F2", updatedGrades[current])
         updatedGrades[current] = 'I';  
         if(current==0) updatedGrades[current] = 'I';
       } else if (score > 0.47) {
-        updatedGrades[current] = 'F';  
+        updatedGrades[current] = 'I';  
       }
     } else if(level==="advanced"){
       if (score > 0.8) {
@@ -90,7 +94,8 @@ const SubEndScreen = () => {
         updatedGrades[current] = 'I';  
       }
     }
-    console.log(score);
+    console.log("F2", updatedGrades[current])
+    console.log("F2", current)
       
   
     // Update the grades state
