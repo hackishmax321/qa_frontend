@@ -9,6 +9,14 @@
   
 }
 
+.container-dash {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  padding-top: 40px;
+}
+
 .container-long {
   padding-top: 200px;
   /* padding-bottom: 100px; */
@@ -394,6 +402,18 @@ button:disabled {
   margin-top: 70px; 
 }
 
+.container-dash .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
 .instructions-list {
   margin: 20px;
 }
@@ -454,4 +474,87 @@ button:disabled {
 
 .card-container .warrning {
   background-color: var(--warning);
+}
+
+
+.results-container {
+  margin-bottom: 30px;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.result-box {
+  border: 1px solid #000;
+  padding: 10px;
+  width: 60px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.caption-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.category-caption {
+  width: 60px;
+  text-align: center;
+  font-size: 8px;
+}
+
+
+/* Progress Tracker */
+
+.progress-tracker {
+  padding: 20px;
+  text-align: center;
+}
+
+.progress-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.progress-table th,
+.progress-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.category-name {
+  text-align: left;
+}
+
+.indicator-cell {
+  width: 100px;
+}
+
+.indicator {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  line-height: 40px;
+  color: white;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
+
+.simple-heading {
+  color: var(--primary-accent);
 }

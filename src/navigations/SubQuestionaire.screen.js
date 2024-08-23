@@ -1,25 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import env from '../configs/env';
 import axios from 'axios';
 
-const QuestionnaireScreen = () => {
+const SubQuestionnaireScreen = () => {
+  
   const location = useLocation();
-  const { questionnaire } = location.state || { questionnaire: [] };
+  const { index, level, category } = location.state;
+  console.log(level + '|' + index)
+  const questionnaire = env.QS_MAIN.filter(question => 
+    question.level.toLowerCase() === level && Math.floor(question.points) === index
+  );
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selected, setSelected] = useState(false);
 
   // Initialize answers array with 82 null values if there are no saved answers
   const [answers, setAnswers] = useState(() => {
-    const savedAnswers = localStorage.getItem('answers');
-    return savedAnswers ? JSON.parse(savedAnswers) : Array(82).fill(null);
+    const savedAnswers = localStorage.getItem('sub_answers');
+    return savedAnswers ? JSON.parse(savedAnswers) : Array(questionnaire.length).fill(null);
   });
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    localStorage.setItem('answers', JSON.stringify(answers));
-  }, [answers]);
+    localStorage.setItem('sub_answers', JSON.stringify(answers));
+  }, [answers, index]);
 
   useEffect(() => {
     const selectedAnswerIndex = answers[currentQuestionIndex];
@@ -50,9 +56,9 @@ const QuestionnaireScreen = () => {
   };
 
   const handleFinish = async () => {
+    // await axios.patch(`${env.SERVER_URL}/auth/student/${localStorage.getItem('username')}`, { status: "Passed" });
     localStorage.setItem('passed', "Passed");
-    await axios.patch(`${env.SERVER_URL}/auth/student/${localStorage.getItem('username')}`, { status: "Passed" });
-    navigate('/end-screen', { state: { answers, questionnaire } });
+    navigate('/sub-end-screen', { state: { answers, questionnaire, subIndex: index, category, level } });
   };
 
   const currentQuestion = questionnaire[currentQuestionIndex];
@@ -60,7 +66,8 @@ const QuestionnaireScreen = () => {
 
   return (
     <div className="container">
-      <h1 className="title">Question {currentQuestionIndex + 1}</h1>
+        <span className='simple-heading'>{category}</span>
+      <h1 className="title">{level.toUpperCase()} Question {currentQuestionIndex + 1}</h1>
       <p className="question">{currentQuestion.question}</p>
       <div className="options">
         {currentQuestion.options.map((option, index) => (
@@ -90,4 +97,4 @@ const QuestionnaireScreen = () => {
   );
 };
 
-export default QuestionnaireScreen;
+export default SubQuestionnaireScreen;

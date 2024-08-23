@@ -3,10 +3,10 @@ import { useLocation, Link, useNavigate } from 'react-router-dom';
 import env from '../configs/env';
 import axios from 'axios';
 
-const EndScreen = () => {
+const SubEndScreen = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { answers = [], questionnaire = [] } = location.state || {};
+  const { answers = [], questionnaire = [], category, level } = location.state || {};
   const [grades, setGrades ] = useState(['F', 'F', 'F', 'F', 'F']);
   const [gradesType, setGradesType ] = useState([
     'Information & Data Literacy',
@@ -18,58 +18,88 @@ const EndScreen = () => {
   const completedCount = answers.filter(answer => answer !== null).length;
 
   const startQuestionnaire = () => {
+    localStorage.removeItem('sub_answers');
     navigate('/dashboard');
   };
 
-  const calculateMarks = async (qs, answers) => {
-    if (qs.length !== answers.length) {
-      console.error("Questionnaire and answers must have the same length!");
-      return;
-    }
+  const retrievePrevious = async (qs, answers) => {
+    try {
+        const response = await fetch(`${env.SERVER_URL}/auth/student/${localStorage.getItem('username')}/tests`);
+        const data = await response.json();
+
+        if (data) {
+          const originalResults = data.firstTest?.grades || [];
+          const progressResults = data.lastTest?.grades || originalResults;
+
+          console.log("DATA",progressResults);
+
+          calculateMarks(qs, answers, progressResults);
+        }
+      } catch (error) {
+        console.error('Error fetching test data:', error);
+      }
+  }
+
+  const calculateMarks = async (qs, answers, prev) => {
+    console.log(qs);
+    console.log(answers);
+    // if (qs.length !== answers.length) {
+    //   console.error("Questionnaire and answers must have the same length!");
+    //   return;
+    // }
   
     let pointsArray = [0, 0, 0, 0, 0];
-    let marks = [48, 92, 64, 64, 60];
-    let updatedGrades = ['F', 'F', 'F', 'F', 'F'];
+    let marks = 4*qs.length;
+    let updatedGrades = prev || ['F', 'F', 'F', 'F', 'F'];
+
+    let current = gradesType.indexOf(category)
+    let pointValue = 0;
+    console.log(current)
+    if(current) {
+      pointValue = pointsArray[current];
+    } else {
+      current = 1;
+      pointValue = pointsArray[current];
+    }
   
-    for (let i = 0; i < qs.length; i++) {
+    for (let i = 0; i < answers.length; i++) {
       // Add 1 to each non-null answer, or replace null with 0
       let answerValue = answers[i] !== null ? answers[i] + 1 : 0;
       
-      // Get the point value from the questionnaire
-      let pointValue = qs[i].points;
-      let full = Math.floor(pointValue);
-  
-      // Add the answer value to the corresponding category in the pointsArray
-      if (full === 1) {
-        pointsArray[0] += answerValue;
-      } else if (full === 2) {
-        pointsArray[1] += answerValue;
-      } else if (full === 3) {
-        pointsArray[2] += answerValue;
-      } else if (full === 4) {
-        pointsArray[3] += answerValue;
-      } else if (full === 5) {
-        pointsArray[4] += answerValue;
-      }
+      pointValue = pointValue + answerValue;
     }
-  
+
+    pointsArray[current] = pointValue;
     // Calculate the grade for each category
-    for (let i = 0; i < pointsArray.length; i++) {
-      let score = pointsArray[i] / marks[i];
-      console.log(score);
+    console.log(marks)
+    let score = pointsArray[current] / marks;
+    console.log(level)
+
+    if(level==="intermediate"){
       if (score > 0.8) {
-        updatedGrades[i] = 'A';  
-        if(i==0) updatedGrades[i] = 'I';
+        updatedGrades[current] = 'I';  
+        if(current==0) updatedGrades[current] = 'I';
       } else if (score > 0.47) {
-        updatedGrades[i] = 'I';  
+        updatedGrades[current] = 'F';  
+      }
+    } else if(level==="advanced"){
+      if (score > 0.8) {
+        updatedGrades[current] = 'A';  
+        if(current==0) updatedGrades[current] = 'I';
+      } else if (score > 0.47) {
+        updatedGrades[current] = 'I';  
       }
     }
+    console.log(score);
+      
   
     // Update the grades state
     setGrades(updatedGrades);
   
     console.log("Points Array:", pointsArray);
     console.log("Updated Grades:", updatedGrades);
+
+
 
     // Update DB
     await axios.post(`${env.SERVER_URL}/auth/student/${localStorage.getItem('username')}/tests`, { 
@@ -84,7 +114,7 @@ const EndScreen = () => {
   };
 
   useEffect(() => {
-    calculateMarks(questionnaire, answers);
+    retrievePrevious(questionnaire, answers);
   }, []);
 
   return (
@@ -127,4 +157,4 @@ const EndScreen = () => {
   );
 };
 
-export default EndScreen;
+export default SubEndScreen;
