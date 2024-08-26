@@ -51,11 +51,14 @@ const SubEndScreen = () => {
     let pointsArray = [0, 0, 0, 0, 0];
     let marks = 4*qs.length;
     let updatedGrades = prev || ['F', 'F', 'F', 'F', 'F'];
-
+    console.log('CURRENT', category)
     let current = gradesType.indexOf(category)
     let pointValue = 0;
     console.log('CURRENT', current)
     if(current||current==0) {
+      pointValue = pointsArray[current];
+    } if(current==-1) {
+      current = 1;
       pointValue = pointsArray[current];
     } else {
       current = 1;
