@@ -57,13 +57,7 @@ const SubEndScreen = () => {
     console.log('CURRENT', current)
     if(current||current==0) {
       pointValue = pointsArray[current];
-    } if(current==-1) {
-      current = 1;
-      pointValue = pointsArray[current];
-    } else {
-      current = 1;
-      pointValue = pointsArray[current];
-    }
+    } 
     console.log('CURRENT', current)
   
     for (let i = 0; i < answers.length; i++) {

@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const ProgressTracker = ({ results }) => {
   const categories = [
     'Information & Data Literacy',
-    'Communication & Collaboration',
+    'Com. & Collaboration',
     'Digital Content Creation',
     'Safety',
     'Problem Solving',
