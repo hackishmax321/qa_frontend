@@ -16,6 +16,8 @@ const ProgressTracker = ({ results }) => {
   const handleNavigation = (index, level, category) => {
     navigate('/study', { state: { index, level, category } });
   };
+  // console.log(results)
+  const isMatch = JSON.stringify(results) === JSON.stringify(['I', 'A', 'A', 'A', 'A']);
 
   return (
     <div className="progress-tracker">
@@ -37,7 +39,7 @@ const ProgressTracker = ({ results }) => {
                   className={`indicator ${
                     results[index] === 'I' || results[index] === 'A' ? 'green' : 'red'
                   }`}
-                  onClick={() => handleNavigation(index+1, 'intermediate', category)}
+                  onClick={() => handleNavigation(index + 1, 'intermediate', category)}
                 >
                   {results[index] !== 'A' ? <AiFillFileMarkdown /> : <AiFillCloseCircle />}
                 </div>
@@ -48,7 +50,7 @@ const ProgressTracker = ({ results }) => {
                     className={`indicator ${
                       results[index] === 'A' ? 'green' : 'red'
                     }`}
-                    onClick={() => handleNavigation(index+1, 'advanced', category)}
+                    onClick={() => handleNavigation(index + 1, 'advanced', category)}
                   >
                     {results[index] === 'F' && <AiFillCloseCircle />}
                     {results[index] === 'I' && <AiFillCloseCircle />}
@@ -60,6 +62,14 @@ const ProgressTracker = ({ results }) => {
           ))}
         </tbody>
       </table>
+      {isMatch && (
+        <div className="match-image">
+          <br/>
+          <h4>You Achieved</h4>
+          <img src={`${process.env.PUBLIC_URL}/images/badge.png`} alt="Match Found" width={200}/>
+          <p className="signup-link">BADGE</p>
+        </div>
+      )}
     </div>
   );
 };
