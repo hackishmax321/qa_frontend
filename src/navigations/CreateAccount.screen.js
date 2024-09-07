@@ -8,7 +8,7 @@ const CreateAccount = () => {
   const [email, setEmail] = useState(localStorage.getItem('username') || '');
   const [fullName, setFullName] = useState('');
   const [address, setAddress] = useState('');
-  const [dob, setDob] = useState('');
+  const [dob, setDob] = useState(null);
   const [age, setAge] = useState('');
   const [gender, setGender] = useState('');
   const [country, setCountry] = useState('');
@@ -185,15 +185,19 @@ const CreateAccount = () => {
         /> */}
         <div className="name-container">
           <input
-            type="date"
-            placeholder="DATE OF BIRTH"
-            className="input-field half-width"
-            value={dob}
-            onChange={(e) => {
-              setDob(e.target.value);
-              setAge(calculateAge(e.target.value));
-            }}
-          />
+                type={dob ? "date" : "text"}
+                placeholder="DATE OF BIRTH"
+                className="input-field half-width"
+                value={dob}
+                onFocus={(e) => (e.target.type = "date")}
+                onBlur={(e) => {
+                  if (!dob) e.target.type = "text"; // Only revert to text if no date is selected
+                }}
+                onChange={(e) => {
+                  setDob(e.target.value);
+                  setAge(calculateAge(e.target.value));
+                }}
+            />
           <input
             type="text"
             placeholder="AGE"

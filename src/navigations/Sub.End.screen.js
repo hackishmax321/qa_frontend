@@ -128,8 +128,11 @@ const SubEndScreen = () => {
             {completedCount}
           </div>
         </div>
-        <div className="card-content">
+        {/* <div className="card-content">
           You have completed {completedCount} out of {questionnaire.length} questions!
+        </div> */}
+        <div className="card-content">
+          You have completed all questions!
         </div>
       </div>
       <br/>

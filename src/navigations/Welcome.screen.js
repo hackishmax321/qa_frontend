@@ -24,6 +24,9 @@ const WelcomeScreen = () => {
     <div className="container" style={{ backgroundImage: `${process.env.PUBLIC_URL}/imges/Background.png`, backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center' }}>
+      <div className="image-container top-img">
+        <img src={`${process.env.PUBLIC_URL}/images/Picture1.png`} alt="Welcome" className="welcome-image" />
+      </div>
       <div className="image-container">
         <img src={`${process.env.PUBLIC_URL}/images/start.png`} alt="Welcome" className="welcome-image" />
       </div>

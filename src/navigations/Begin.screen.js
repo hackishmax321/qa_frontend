@@ -62,7 +62,7 @@ const BeginScreen = () => {
       <br />
       <div className="button-container">
         <button onClick={startQuestionnaire} className="button button-long login-button no-underline">
-          Let's complete the Survey
+          Complete the Survey
         </button>
       </div>
       {/* <p className="signup-prompt">See <Link to="/dashboard" className="signup-link">Instructions</Link></p> */}

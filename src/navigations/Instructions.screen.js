@@ -12,12 +12,13 @@ const InstructionsScreen = () => {
     <div className="container">
       <h1 className="title">Instructions</h1>
       <p className="subtitle">
-        Please read the following instructions carefully before proceeding.
+      The initial assessment contains a comprehensive set of 82 self-assessment questions. This test may takeabout 20min to complete. Therefore, you are advised to respond to all the questions with due attention so that the app suggests you take necessary learning materials corresponding to the specific area of digital competence you need to improve, based on your own self-assessment.
       </p>
+      <p>Please read the following instructions carefully before.</p>
       <div className="instructions-list">
         <ol>
-          <li>Ensure you have a stable internet connection.</li>
-          <li>Complete all the required fields in the survey.</li>
+          <li>Dedicate appropriate time and attention for the assessment.</li>
+          <li>Complete all the self-assessment questions in the survey.</li>
           <li>Do not refresh the page while taking the survey.</li>
           <li>If you encounter any issues, contact support.</li>
           <li>Review your answers before submitting the survey.</li>
