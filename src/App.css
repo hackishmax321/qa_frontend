@@ -560,6 +560,6 @@ button:disabled {
 }
 
 .top-img {
-  position: relative;
-  top: 25px;
+  /* position: relative;
+  top: 15px; */
 }
