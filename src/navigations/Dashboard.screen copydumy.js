@@ -66,7 +66,7 @@ const DashboardScreen = () => {
         <h1 className="title">Dashboard</h1>
         <p className="subtitle">Welcome, {userData.name}</p>
 
-        {/* <div className="results-container">
+        <div className="results-container">
           <h3>Original Result</h3>
           <div className="result-row">
             {userData.originalResults.map((result, index) => (
@@ -82,9 +82,9 @@ const DashboardScreen = () => {
               </div>
             ))}
           </div>
-        </div> */}
+        </div>
 
-        {/* <div className="results-container">
+        <div className="results-container">
           <h3>Progress Result</h3>
           <div className="result-row">
             {userData.progressResults.map((result, index) => (
@@ -100,13 +100,13 @@ const DashboardScreen = () => {
               </div>
             ))}
           </div>
-        </div> */}
+        </div>
 
         {/* <ProgressTracker /> */}
 
-        {/* <p className="signup-prompt">
+        <p className="signup-prompt">
           Attempt Survey Again <Link to="/quest-begin" className="signup-link">Here</Link>
-        </p> */}
+        </p>
 
         <div className='results-container'>
             {userData&&<ProgressTracker results={userData.progressResults}/>}

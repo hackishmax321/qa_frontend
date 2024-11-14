@@ -11,21 +11,28 @@ const StudyMaterialsScreen = () => {
     navigate('/sub-quest', { state: { index, level, category } });
   };
 
-  
-
   return (
     <div className="container">
-        <span className='simple-heading'>{category}</span>
+      <span className="simple-heading">{category}</span>
       <h1 className="title">Competence {level}</h1>
-      {/* <h2 className="competence-category">{category}</h2>
-      <h3 className="competence-level">[{level}]</h3> */}
+
+      {/* Video Container */}
+      <div style={{ width: '100%', maxWidth: '800px', margin: '0 auto' }}>
+        <video
+          controls
+          style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}
+        >
+          <source src={`${process.env.PUBLIC_URL}/videos/sample.mp4`} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
       <div className="study-content">
         <p>Here is some dummy text for study content.</p>
         <p>This content is specific to the {category} competency at the {level} level.</p>
         <p>Review the material and click the button below to re-attempt the quiz.</p>
       </div>
-        <br/>
+      <br />
       <button onClick={handleReattempt} className="reattempt-button">
         Re-attempt Quiz
       </button>

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AiFillFileMarkdown, AiFillCloseCircle } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 
 const ProgressTracker = ({ results }) => {
+  console.log(results)
   const categories = [
     'Information & Data Literacy',
     'Com. & Collaboration',
@@ -11,12 +12,36 @@ const ProgressTracker = ({ results }) => {
     'Problem Solving',
   ];
 
+  const [gradesType] = useState([
+    { id:0, category: '1.1', title: 'Browsing Searching and Filtering', mainCategory: 'Information & Data Literacy' },
+    { id:1, category: '1.2', title: 'Evaluating Data', mainCategory: 'Information & Data Literacy' },
+    { id:2, category: '1.3', title: 'Managing Data', mainCategory: 'Information & Data Literacy' },
+    { id:3, category: '2.1', title: 'Interaction through', mainCategory: 'Com. & Collaboration' },
+    { id:4, category: '2.2', title: 'Sharing Information', mainCategory: 'Com. & Collaboration' },
+    { id:5, category: '2.3', title: 'xxx', mainCategory: 'Com. & Collaboration' },
+    { id:6, category: '2.4', title: 'xxx', mainCategory: 'Com. & Collaboration' },
+    { id:7, category: '2.5', title: 'xxx', mainCategory: 'Com. & Collaboration' },
+    { id:8, category: '2.6', title: 'xxx', mainCategory: 'Com. & Collaboration' },
+    { id:9, category: '3.1', title: 'xxx', mainCategory: 'Digital Content Creation' },
+    { id:10, category: '3.2', title: 'xxx', mainCategory: 'Digital Content Creation' },
+    { id:11, category: '3.3', title: 'xxx', mainCategory: 'Digital Content Creation' },
+    { id:12, category: '3.4', title: 'xxx', mainCategory: 'Digital Content Creation' },
+    { id:13, category: '4.1', title: 'xxx', mainCategory: 'Safety' },
+    { id:14, category: '4.2', title: 'xxx', mainCategory: 'Safety' },
+    { id:15, category: '4.3', title: 'xxx', mainCategory: 'Safety' },
+    { id:16, category: '4.4', title: 'xxx', mainCategory: 'Safety' },
+    { id:17, category: '5.1', title: 'xxx', mainCategory: 'Problem Solving' },
+    { id:18, category: '5.2', title: 'xxx', mainCategory: 'Problem Solving' },
+    { id:19, category: '5.3', title: 'xxx', mainCategory: 'Problem Solving' },
+    { id:20, category: '5.4', title: 'xxx', mainCategory: 'Problem Solving' },
+  ]);
+
   const navigate = useNavigate();
 
   const handleNavigation = (index, level, category) => {
     navigate('/study', { state: { index, level, category } });
   };
-  // console.log(results)
+
   const isMatch = JSON.stringify(results) === JSON.stringify(['I', 'A', 'A', 'A', 'A']);
 
   return (
@@ -26,47 +51,57 @@ const ProgressTracker = ({ results }) => {
         <thead>
           <tr>
             <th>Category</th>
-            <th>Intermediate</th>
-            <th>Advanced</th>
+            <th>Basic</th>
+            <th>Master</th>
           </tr>
         </thead>
         <tbody>
           {categories.map((category, index) => (
-            <tr key={index}>
-              <td className="category-name">{category}</td>
-              <td className="indicator-cell">
-                <div
-                  className={`indicator ${
-                    results[index] === 'I' || results[index] === 'A' ? 'green' : 'red'
-                  }`}
-                  onClick={() => handleNavigation(index + 1, 'intermediate', category)}
-                >
-                  {results[index] !== 'A' ? <AiFillFileMarkdown /> : <AiFillCloseCircle />}
-                </div>
-              </td>
-              <td className="indicator-cell">
-                {category !== 'Information & Data Literacy' && (
-                  <div
-                    className={`indicator ${
-                      results[index] === 'A' ? 'green' : 'red'
-                    }`}
-                    onClick={() => handleNavigation(index + 1, 'advanced', category)}
-                  >
-                    {results[index] === 'F' && <AiFillCloseCircle />}
-                    {results[index] === 'I' && <AiFillCloseCircle />}
-                    {results[index] === 'A' && <AiFillFileMarkdown />}
-                  </div>
-                )}
-              </td>
-            </tr>
+            <React.Fragment key={index}>
+              <tr>
+                <td className="category-name" colSpan={2}>
+                  <strong>{category}</strong>
+                </td>
+                <td colSpan="2"></td>
+              </tr>
+              {gradesType
+                .filter((grade) => grade.mainCategory === category)
+                .map((grade, gradeIndex) => (
+                  <tr key={`${index}-${gradeIndex}`}>
+                    <td className="subcategory-name">- {grade.title}</td>
+                    <td className="indicator-cell">
+                      <div
+                        className={`indicator`}
+                        onClick={() => handleNavigation(index + 1, 'master', category)}
+                      >
+                        {results[grade.id] !== 'M' ? <img src={`${process.env.PUBLIC_URL}/images/lock-black.png`} alt="Match Found" width={20} /> : <img src={`${process.env.PUBLIC_URL}/images/lock-green.png`} alt="Match Found" width={30} />}
+                      </div>
+                    </td>
+                    <td className="indicator-cell">
+                      <div
+                          className={`indicator`}
+                          onClick={
+                            results[grade.id] === 'B'
+                              ? null // No onClick if result is 'B'
+                              : () => handleNavigation(index + 1, 'master', category)
+                          }
+                        >
+                          {results[grade.id] === 'F' && <img src={`${process.env.PUBLIC_URL}/images/lock-red.png`} alt="Match Found" width={25} />}
+                          {results[grade.id] === 'B' && <img src={`${process.env.PUBLIC_URL}/images/lock-red.png`} alt="Match Found" width={25} />}
+                          {results[grade.id] === 'M' && <img src={`${process.env.PUBLIC_URL}/images/lock-black.png`} alt="Match Found" width={20} />}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+            </React.Fragment>
           ))}
         </tbody>
       </table>
       {isMatch && (
         <div className="match-image">
-          <br/>
+          <br />
           <h4>You Achieved</h4>
-          <img src={`${process.env.PUBLIC_URL}/images/badge.png`} alt="Match Found" width={200}/>
+          <img src={`${process.env.PUBLIC_URL}/images/badge.png`} alt="Match Found" width={200} />
           <p className="signup-link">BADGE</p>
         </div>
       )}

@@ -743,6 +743,62 @@ const env = {
           type: 'Skills',
           level: 'Intermediate',
         },
+      ],
+      QS_SAMPLE : [
+        {
+          title: 'Question 1',
+          question: 'What color are bananas?',
+          options: ['Blue', 'Green', 'Yellow', 'Purple'],
+          answer: 'Yellow',
+          points: 1.0,
+          type: 'Knowledge',
+          level: 'Foundation',
+        },
+        {
+          title: 'Question 2',
+          question: 'Which animal says “meow”?',
+          options: ['Dog', 'Cat', 'Cow', 'Sheep'],
+          answer: 'Cat',
+          points: 1.0,
+          type: 'Knowledge',
+          level: 'Foundation',
+        },
+        {
+          title: 'Question 3',
+          question: 'What is 2 + 2?',
+          options: ['3', '4', '5', '6'],
+          answer: '4',
+          points: 1.0,
+          type: 'Knowledge',
+          level: 'Foundation',
+        },
+        {
+          title: 'Question 4',
+          question: 'Where do fish live?',
+          options: ['In the sky', 'In the forest', 'In the water', 'In a desert'],
+          answer: 'In the water',
+          points: 1.0,
+          type: 'Knowledge',
+          level: 'Foundation',
+        },
+        {
+          title: 'Question 5',
+          question: 'Which fruit is red and often found in pies?',
+          options: ['Banana', 'Apple', 'Orange', 'Grape'],
+          answer: 'Apple',
+          points: 1.0,
+          type: 'Knowledge',
+          level: 'Foundation',
+        },
+        {
+          title: 'Question 6',
+          question: 'What do bees make that is sweet and sticky?',
+          options: ['Jam', 'Chocolate', 'Honey', 'Butter'],
+          answer: 'Honey',
+          points: 1.0,
+          type: 'Knowledge',
+          level: 'Foundation',
+        }
       ]
 }
 

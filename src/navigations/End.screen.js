@@ -9,11 +9,27 @@ const EndScreen = () => {
   const { answers = [], questionnaire = [] } = location.state || {};
   const [grades, setGrades ] = useState(['F', 'F', 'F', 'F', 'F']);
   const [gradesType, setGradesType ] = useState([
-    'Information & Data Literacy',
-    'Com. & Collaboration',
-    'Digital Content Creation',
-    'Safety',
-    'Problem Solving'
+    '1.1',
+    '1.2',
+    '1.3',
+    '2.1',
+    '2.2',
+    '2.3',
+    '2.4',
+    '2.5',
+    '2.6',
+    '3.1',
+    '3.2',
+    '3.3',
+    '3.4',
+    '4.1',
+    '4.2',
+    '4.3',
+    '4.4',
+    '5.1',
+    '5.2',
+    '5.3',
+    '5.4'
   ]);
   const completedCount = answers.filter(answer => answer !== null).length;
 
@@ -27,9 +43,9 @@ const EndScreen = () => {
       return;
     }
   
-    let pointsArray = [0, 0, 0, 0, 0];
-    let marks = [48, 92, 64, 64, 60];
-    let updatedGrades = ['F', 'F', 'F', 'F', 'F'];
+    let pointsArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let marks = [4*4, 4*4, 4*4, 4*4, 4*4, 4*4, 4*3, 4*4, 4*4, 4*4, 4*4, 4*4, 4*4, 4*4, 4*5, 4*3, 4*4, 4*4, 4*4, 4*3, 4*4];
+    let updatedGrades = ['F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F'];
   
     for (let i = 0; i < qs.length; i++) {
       // Add 1 to each non-null answer, or replace null with 0
@@ -55,13 +71,13 @@ const EndScreen = () => {
   
     // Calculate the grade for each category
     for (let i = 0; i < pointsArray.length; i++) {
-      let score = pointsArray[i] / marks[i];
+      let score = 100 * [i] / marks[i];
       console.log(score);
-      if (score > 0.8) {
-        updatedGrades[i] = 'A';  
-        if(i==0) updatedGrades[i] = 'I';
-      } else if (score > 0.47) {
-        updatedGrades[i] = 'I';  
+      if (score >= 80) {
+        updatedGrades[i] = 'M';  
+        // if(i==0) updatedGrades[i] = 'B';
+      } else if (score < 80) {
+        updatedGrades[i] = 'B';  
       }
     }
   
@@ -104,7 +120,7 @@ const EndScreen = () => {
         </div>
       </div>
       <br/>
-      <div className="results-container">
+      {/* <div className="results-container">
           <h3>Results</h3>
           <div className="result-row">
             {grades.map((result, index) => (
@@ -120,7 +136,7 @@ const EndScreen = () => {
               </div>
             ))}
           </div>
-      </div>
+      </div> */}
       <div className="button-container">
         <button onClick={startQuestionnaire} className="button button-long login-button no-underline">
           Proceed to Dashboard

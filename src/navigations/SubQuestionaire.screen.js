@@ -8,9 +8,7 @@ const SubQuestionnaireScreen = () => {
   const location = useLocation();
   const { index, level, category } = location.state;
   console.log(level + '|' + index)
-  const questionnaire = env.QS_MAIN.filter(question => 
-    question.level.toLowerCase() === level && Math.floor(question.points) === index
-  );
+  const questionnaire = env.QS_SAMPLE;
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selected, setSelected] = useState(false);
