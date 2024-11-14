@@ -13,27 +13,27 @@ const ProgressTracker = ({ results }) => {
   ];
 
   const [gradesType] = useState([
-    { id:0, category: '1.1', title: 'Browsing Searching and Filtering', mainCategory: 'Information & Data Literacy' },
-    { id:1, category: '1.2', title: 'Evaluating Data', mainCategory: 'Information & Data Literacy' },
-    { id:2, category: '1.3', title: 'Managing Data', mainCategory: 'Information & Data Literacy' },
-    { id:3, category: '2.1', title: 'Interaction through', mainCategory: 'Com. & Collaboration' },
-    { id:4, category: '2.2', title: 'Sharing Information', mainCategory: 'Com. & Collaboration' },
-    { id:5, category: '2.3', title: 'xxx', mainCategory: 'Com. & Collaboration' },
-    { id:6, category: '2.4', title: 'xxx', mainCategory: 'Com. & Collaboration' },
-    { id:7, category: '2.5', title: 'xxx', mainCategory: 'Com. & Collaboration' },
-    { id:8, category: '2.6', title: 'xxx', mainCategory: 'Com. & Collaboration' },
-    { id:9, category: '3.1', title: 'xxx', mainCategory: 'Digital Content Creation' },
-    { id:10, category: '3.2', title: 'xxx', mainCategory: 'Digital Content Creation' },
-    { id:11, category: '3.3', title: 'xxx', mainCategory: 'Digital Content Creation' },
-    { id:12, category: '3.4', title: 'xxx', mainCategory: 'Digital Content Creation' },
-    { id:13, category: '4.1', title: 'xxx', mainCategory: 'Safety' },
-    { id:14, category: '4.2', title: 'xxx', mainCategory: 'Safety' },
-    { id:15, category: '4.3', title: 'xxx', mainCategory: 'Safety' },
-    { id:16, category: '4.4', title: 'xxx', mainCategory: 'Safety' },
-    { id:17, category: '5.1', title: 'xxx', mainCategory: 'Problem Solving' },
-    { id:18, category: '5.2', title: 'xxx', mainCategory: 'Problem Solving' },
-    { id:19, category: '5.3', title: 'xxx', mainCategory: 'Problem Solving' },
-    { id:20, category: '5.4', title: 'xxx', mainCategory: 'Problem Solving' },
+    { id:0, category: '1.1', title: 'Browsing, searching and filtering data, information and digital content', mainCategory: 'Information & Data Literacy' },
+    { id:1, category: '1.2', title: 'Evaluating data, information and digital content', mainCategory: 'Information & Data Literacy' },
+    { id:2, category: '1.3', title: 'Managing data, information and digital content', mainCategory: 'Information & Data Literacy' },
+    { id:3, category: '2.1', title: 'Interacting through digital technologies', mainCategory: 'Com. & Collaboration' },
+    { id:4, category: '2.2', title: 'Sharing information and content through digital technologies', mainCategory: 'Com. & Collaboration' },
+    { id:5, category: '2.3', title: 'Engaging in citizenship through digital technologies', mainCategory: 'Com. & Collaboration' },
+    { id:6, category: '2.4', title: 'Collaborating through digital technologies', mainCategory: 'Com. & Collaboration' },
+    { id:7, category: '2.5', title: 'Netiquette', mainCategory: 'Com. & Collaboration' },
+    { id:8, category: '2.6', title: 'Managing digital identity', mainCategory: 'Com. & Collaboration' },
+    { id:9, category: '3.1', title: 'Developing digital content', mainCategory: 'Digital Content Creation' },
+    { id:10, category: '3.2', title: 'Integrating and re-elaborating digital content', mainCategory: 'Digital Content Creation' },
+    { id:11, category: '3.3', title: 'Copyright and licenses', mainCategory: 'Digital Content Creation' },
+    { id:12, category: '3.4', title: 'Programming', mainCategory: 'Digital Content Creation' },
+    { id:13, category: '4.1', title: 'Protecting devices', mainCategory: 'Safety' },
+    { id:14, category: '4.2', title: 'Protecting personal data and privacy', mainCategory: 'Safety' },
+    { id:15, category: '4.3', title: 'Protecting health and well-being', mainCategory: 'Safety' },
+    { id:16, category: '4.4', title: 'Protecting the environment', mainCategory: 'Safety' },
+    { id:17, category: '5.1', title: 'Solving technical problems', mainCategory: 'Problem Solving' },
+    { id:18, category: '5.2', title: 'Identifying needs and technological responses', mainCategory: 'Problem Solving' },
+    { id:19, category: '5.3', title: 'Creatively using digital technologies', mainCategory: 'Problem Solving' },
+    { id:20, category: '5.4', title: 'Identifying digital competence gaps', mainCategory: 'Problem Solving' },
   ]);
 
   const navigate = useNavigate();
@@ -68,7 +68,7 @@ const ProgressTracker = ({ results }) => {
                 .filter((grade) => grade.mainCategory === category)
                 .map((grade, gradeIndex) => (
                   <tr key={`${index}-${gradeIndex}`}>
-                    <td className="subcategory-name">- {grade.title}</td>
+                    <td className="subcategory-name"><b>{grade.category}</b> {grade.title}</td>
                     <td className="indicator-cell">
                       <div
                         className={`indicator`}
