@@ -42,7 +42,7 @@ const ProgressTracker = ({ results }) => {
     navigate('/study', { state: { index, level, category, sub } });
   };
 
-  const isMatch = JSON.stringify(results) === JSON.stringify(['I', 'A', 'A', 'A', 'A']);
+  const isMatch = JSON.stringify(results) === JSON.stringify(['C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C']);
 
   return (
     <div className="progress-tracker">
