@@ -6,7 +6,7 @@ import axios from 'axios';
 const SubEndScreen = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { answers = [], questionnaire = [], category, level } = location.state || {};
+  const { answers = [], questionnaire = [], category, level, sub } = location.state || {};
   const [grades, setGrades ] = useState(['F', 'F', 'F', 'F', 'F']);
   const [gradesType, setGradesType ] = useState([
     'Information & Data Literacy',
@@ -16,6 +16,18 @@ const SubEndScreen = () => {
     'Problem Solving'
   ]);
   const completedCount = answers.filter(answer => answer !== null).length;
+  console.log(answers)
+  console.log(questionnaire)
+
+  const correctCount = questionnaire.reduce((count, q, index) => {
+    const selectedOption = q.options[answers[index]]; // Get the selected option value
+    return selectedOption === q.answer ? count + 1 : count; // Increment count if correct
+  }, 0);
+  
+  const getIdByTitle = (title) => {
+    const item = env.QS_CAT.find((category) => category.title === title);
+    return item ? item.id : null; 
+  };
 
   const startQuestionnaire = () => {
     localStorage.removeItem('sub_answers');
@@ -52,7 +64,8 @@ const SubEndScreen = () => {
     let marks = 4*qs.length;
     let updatedGrades = prev || ['F', 'F', 'F', 'F', 'F'];
     console.log('CURRENT', category)
-    let current = gradesType.indexOf(category)
+    let current = sub?getIdByTitle(sub.title):0
+    console.log(current)
     let pointValue = 0;
     console.log('CURRENT', current)
     if(current||current==0) {
@@ -60,37 +73,16 @@ const SubEndScreen = () => {
     } 
     console.log('CURRENT', current)
   
-    for (let i = 0; i < answers.length; i++) {
-      // Add 1 to each non-null answer, or replace null with 0
-      let answerValue = answers[i] !== null ? answers[i] + 1 : 0;
-      
-      pointValue = pointValue + answerValue;
-    }
-
-    pointsArray[current] = pointValue;
-    // Calculate the grade for each category
-    console.log(marks)
-    let score = pointsArray[current] / marks;
-    console.log(level)
-    console.log("Score",score)
-
-    if(level==="intermediate"){
-      console.log("F1")
-      if (score > 0.8) {
-        console.log("F2", updatedGrades[current])
-        updatedGrades[current] = 'I';  
-        if(current==0) updatedGrades[current] = 'I';
-      } else if (score > 0.47) {
-        updatedGrades[current] = 'I';  
+    
+    let score = 100*(correctCount / completedCount);
+    
+    if (score > 0.8) {
+      if(level=="basic"){
+        updatedGrades[current] = "M"
+      } else if(level=="master") {
+        updatedGrades[current] = "C"
       }
-    } else if(level==="advanced"){
-      if (score > 0.8) {
-        updatedGrades[current] = 'A';  
-        if(current==0) updatedGrades[current] = 'I';
-      } else if (score > 0.47) {
-        updatedGrades[current] = 'I';  
-      }
-    }
+    } 
     console.log("F2", updatedGrades[current])
     console.log("F2", current)
       
@@ -121,36 +113,40 @@ const SubEndScreen = () => {
 
   return (
     <div className="container">
-      <h1 className="title">Survey Completion</h1>
-      <div className="card-container">
-        <div className="google-button">
-          <div className="number">
-            {completedCount}
-          </div>
-        </div>
-        {/* <div className="card-content">
-          You have completed {completedCount} out of {questionnaire.length} questions!
-        </div> */}
-        <div className="card-content">
-          You have completed all questions!
-        </div>
-      </div>
+      <span className='simple-heading'>[{level.toUpperCase()}]</span>
+      <h1 className="title">{category}</h1>
+      {sub&&<small>{sub.category} - {sub.title}</small>}
+      
       <br/>
       <div className="results-container">
           <h3>Results</h3>
-          <div className="result-row">
-            {grades.map((result, index) => (
-              <div key={index} className="result-box">
-                <span className="result-letter">{result}</span>
+          
+          <div className="card-container">
+            <div className="google-button">
+              <div className="number">
+                {correctCount}/{completedCount}
               </div>
-            ))}
+            </div>
+            {/* <div className="card-content">
+              You have completed {completedCount} out of {questionnaire.length} questions!
+            </div> */}
+            <div className="card-content">
+              Correct Answers
+            </div>
           </div>
-          <div className="caption-row">
-            {gradesType.map((category, index) => (
-              <div key={index} className="category-caption">
-                <span>{category}</span>
+          <br></br>
+          <div className="card-container">
+            <div className="google-button">
+              <div className="number">
+                {completedCount-correctCount}/{completedCount}
               </div>
-            ))}
+            </div>
+            {/* <div className="card-content">
+              You have completed {completedCount} out of {questionnaire.length} questions!
+            </div> */}
+            <div className="card-content">
+              Incorrect Answers
+            </div>
           </div>
       </div>
       <div className="button-container">

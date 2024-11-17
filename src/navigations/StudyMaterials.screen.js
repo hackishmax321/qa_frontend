@@ -5,16 +5,17 @@ const StudyMaterialsScreen = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { index, level, category } = location.state || {};
+  const { index, level, category, sub } = location.state || {};
 
   const handleReattempt = () => {
-    navigate('/sub-quest', { state: { index, level, category } });
+    navigate('/sub-quest', { state: { index, level, category, sub } });
   };
 
   return (
     <div className="container">
-      <span className="simple-heading">{category}</span>
-      <h1 className="title">Competence {level}</h1>
+      <span className="simple-heading">Learning Materials</span>
+      <h4 className="title">{category} [{level.toUpperCase()}]</h4>
+      {sub&&<small>{sub.category} - {sub.title}</small>}
 
       {/* Video Container */}
       <div style={{ width: '100%', maxWidth: '800px', margin: '0 auto' }}>

@@ -38,8 +38,8 @@ const ProgressTracker = ({ results }) => {
 
   const navigate = useNavigate();
 
-  const handleNavigation = (index, level, category) => {
-    navigate('/study', { state: { index, level, category } });
+  const handleNavigation = (index, level, category, sub) => {
+    navigate('/study', { state: { index, level, category, sub } });
   };
 
   const isMatch = JSON.stringify(results) === JSON.stringify(['I', 'A', 'A', 'A', 'A']);
@@ -72,9 +72,9 @@ const ProgressTracker = ({ results }) => {
                     <td className="indicator-cell">
                       <div
                         className={`indicator`}
-                        onClick={() => handleNavigation(index + 1, 'master', category)}
+                        onClick={() => handleNavigation(index + 1, 'basic', category, grade)}
                       >
-                        {results[grade.id] !== 'M' ? <img src={`${process.env.PUBLIC_URL}/images/lock-black.png`} alt="Match Found" width={20} /> : <img src={`${process.env.PUBLIC_URL}/images/lock-green.png`} alt="Match Found" width={30} />}
+                        {results[grade.id] == 'B' ? <img src={`${process.env.PUBLIC_URL}/images/lock-black.png`} alt="Match Found" width={20} /> : <img src={`${process.env.PUBLIC_URL}/images/lock-green.png`} alt="Match Found" width={30} />}
                       </div>
                     </td>
                     <td className="indicator-cell">
@@ -83,12 +83,13 @@ const ProgressTracker = ({ results }) => {
                           onClick={
                             results[grade.id] === 'B'
                               ? null // No onClick if result is 'B'
-                              : () => handleNavigation(index + 1, 'master', category)
+                              : () => handleNavigation(index + 1, 'master', category, grade)
                           }
                         >
                           {results[grade.id] === 'F' && <img src={`${process.env.PUBLIC_URL}/images/lock-red.png`} alt="Match Found" width={25} />}
                           {results[grade.id] === 'B' && <img src={`${process.env.PUBLIC_URL}/images/lock-red.png`} alt="Match Found" width={25} />}
                           {results[grade.id] === 'M' && <img src={`${process.env.PUBLIC_URL}/images/lock-black.png`} alt="Match Found" width={20} />}
+                          {results[grade.id] === 'C' && <img src={`${process.env.PUBLIC_URL}/images/lock-green.png`} alt="Match Found" width={30} />}
                       </div>
                     </td>
                   </tr>

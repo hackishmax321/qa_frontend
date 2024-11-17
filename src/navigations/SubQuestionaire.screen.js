@@ -6,7 +6,7 @@ import axios from 'axios';
 const SubQuestionnaireScreen = () => {
   
   const location = useLocation();
-  const { index, level, category } = location.state;
+  const { index, level, category, sub } = location.state;
   console.log(level + '|' + index)
   const questionnaire = env.QS_SAMPLE;
 
@@ -56,7 +56,7 @@ const SubQuestionnaireScreen = () => {
   const handleFinish = async () => {
     // await axios.patch(`${env.SERVER_URL}/auth/student/${localStorage.getItem('username')}`, { status: "Passed" });
     localStorage.setItem('passed', "Passed");
-    navigate('/sub-end-screen', { state: { answers, questionnaire, subIndex: index, category, level } });
+    navigate('/sub-end-screen', { state: { answers, questionnaire, subIndex: index, category, level, sub } });
   };
 
   const currentQuestion = questionnaire[currentQuestionIndex];
@@ -64,8 +64,11 @@ const SubQuestionnaireScreen = () => {
 
   return (
     <div className="container">
-        <span className='simple-heading'>{category}</span>
-      <h1 className="title">{level.toUpperCase()} Question {currentQuestionIndex + 1}</h1>
+        <span className='simple-heading'>[{level.toUpperCase()}]</span>
+        <h1 className="title">{category}</h1>
+        {sub&&<small>{sub.category} - {sub.title}</small>}
+        <br></br>
+      <h1 className="title"> Question {currentQuestionIndex + 1}</h1>
       <p className="question">{currentQuestion.question}</p>
       <div className="options">
         {currentQuestion.options.map((option, index) => (
