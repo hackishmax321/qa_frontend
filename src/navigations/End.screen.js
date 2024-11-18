@@ -52,8 +52,7 @@ const EndScreen = () => {
       let answerValue = answers[i] !== null ? answers[i] + 1 : 0;
       
       // Get the point value from the questionnaire
-      let pointValue = qs[i].points;
-      let full = Math.floor(pointValue);
+      let full = qs[i].points;
   
       // Add the answer value to the corresponding category in the pointsArray
       if (full === 1.1) {
@@ -100,6 +99,8 @@ const EndScreen = () => {
         pointsArray[20] += answerValue;
       } 
     }
+
+    console.log(pointsArray)
   
     // Calculate the grade for each category
     for (let i = 0; i < pointsArray.length; i++) {
