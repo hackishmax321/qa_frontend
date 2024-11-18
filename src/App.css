@@ -563,3 +563,7 @@ button:disabled {
   /* position: relative;
   top: 15px; */
 }
+
+.w-14 {
+  font-size: 14px;
+}

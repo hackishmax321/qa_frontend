@@ -11,7 +11,7 @@ const InstructionsScreen = () => {
   return (
     <div className="container">
       <h1 className="title">Instructions</h1>
-      <p className="subtitle">
+      <p className="subtitle w-14">
       The initial assessment contains a comprehensive set of 82 self-assessment questions. This test may takeabout 20min to complete. Therefore, you are advised to respond to all the questions with due attention so that the app suggests you take necessary learning materials corresponding to the specific area of digital competence you need to improve, based on your own self-assessment.
       </p>
       <p>Please read the following instructions carefully before.</p>
