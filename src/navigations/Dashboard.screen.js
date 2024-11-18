@@ -104,9 +104,9 @@ const DashboardScreen = () => {
 
         {/* <ProgressTracker /> */}
 
-        <p className="signup-prompt">
+        {/* <p className="signup-prompt">
           Attempt Survey Again <Link to="/quest-begin" className="signup-link">Here</Link>
-        </p>
+        </p> */}
 
         <div className='results-container'>
             {userData&&<ProgressTracker results={userData.progressResults}/>}
