@@ -74,9 +74,9 @@ const SubEndScreen = () => {
     console.log('CURRENT', current)
   
     
-    let score = 100*(correctCount / completedCount);
+    let score = (correctCount / completedCount);
     
-    if (score > 0.8) {
+    if (score == 1) {
       if(level=="basic"){
         updatedGrades[current] = "M"
       } else if(level=="master") {

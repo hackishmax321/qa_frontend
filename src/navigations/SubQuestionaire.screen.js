@@ -8,7 +8,15 @@ const SubQuestionnaireScreen = () => {
   const location = useLocation();
   const { index, level, category, sub } = location.state;
   console.log(level + '|' + index)
-  const questionnaire = env.QS_SAMPLE;
+
+  const getThreeRandomQuestions = (questionnaire) => {
+    // Shuffle the array
+    const shuffled = [...questionnaire].sort(() => 0.5 - Math.random());
+    // Get the first three items
+    return shuffled.slice(0, 3);
+  };
+
+  const [questionnaire, setQuestionaire] = useState(getThreeRandomQuestions(env.QS_SAMPLE));
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selected, setSelected] = useState(false);
