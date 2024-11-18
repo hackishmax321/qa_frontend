@@ -56,22 +56,54 @@ const EndScreen = () => {
       let full = Math.floor(pointValue);
   
       // Add the answer value to the corresponding category in the pointsArray
-      if (full === 1) {
+      if (full === 1.1) {
         pointsArray[0] += answerValue;
-      } else if (full === 2) {
+      } else if (full === 1.2) {
         pointsArray[1] += answerValue;
-      } else if (full === 3) {
+      } else if (full === 1.3) {
         pointsArray[2] += answerValue;
-      } else if (full === 4) {
+      } else if (full === 2.1) {
         pointsArray[3] += answerValue;
-      } else if (full === 5) {
+      } else if (full === 2.2) {
         pointsArray[4] += answerValue;
-      }
+      } else if (full === 2.3) {
+        pointsArray[5] += answerValue;
+      } else if (full === 2.4) {
+        pointsArray[6] += answerValue;
+      } else if (full === 2.5) {
+        pointsArray[7] += answerValue;
+      } else if (full === 2.6) {
+        pointsArray[8] += answerValue;
+      } else if (full === 3.1) {
+        pointsArray[9] += answerValue;
+      } else if (full === 3.2) {
+        pointsArray[10] += answerValue;
+      } else if (full === 3.3) {
+        pointsArray[11] += answerValue;
+      } else if (full === 3.4) {
+        pointsArray[12] += answerValue;
+      } else if (full === 4.1) {
+        pointsArray[13] += answerValue;
+      } else if (full === 4.2) {
+        pointsArray[14] += answerValue;
+      } else if (full === 4.3) {
+        pointsArray[15] += answerValue;
+      } else if (full === 4.4) {
+        pointsArray[16] += answerValue;
+      } else if (full === 5.1) {
+        pointsArray[17] += answerValue;
+      } else if (full === 5.2) {
+        pointsArray[18] += answerValue;
+      } else if (full === 5.3) {
+        pointsArray[19] += answerValue;
+      } else if (full === 5.4) {
+        pointsArray[20] += answerValue;
+      } 
     }
   
     // Calculate the grade for each category
     for (let i = 0; i < pointsArray.length; i++) {
-      let score = 100 * [i] / marks[i];
+      let score = 100 * pointsArray[i] / marks[i];
       console.log(score);
       if (score >= 80) {
         updatedGrades[i] = 'M';  
