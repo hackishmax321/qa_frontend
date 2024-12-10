@@ -14,7 +14,7 @@ const StudyMaterialsScreen = () => {
   return (
     <div className="container">
       <span className="simple-heading">Learning Materials</span>
-      <h4 className="title">{category} [{level.toUpperCase()}]</h4>
+      <h4 className="title">{category} [{level.toLowerCase() === "basic" ? "Foundation / Intermediate" : "Advanced / Highly Specialized"}]</h4>
       {sub&&<small>{sub.category} - {sub.title}</small>}
 
       {/* Video Container */}

@@ -51,8 +51,8 @@ const ProgressTracker = ({ results }) => {
         <thead>
           <tr>
             <th>Category</th>
-            <th>Basic</th>
-            <th>Master</th>
+            <th>Foundation / Intermediate</th>
+            <th>Advanced / Highly Specialized</th>
           </tr>
         </thead>
         <tbody>

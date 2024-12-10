@@ -7,16 +7,28 @@ const SubQuestionnaireScreen = () => {
   
   const location = useLocation();
   const { index, level, category, sub } = location.state;
-  console.log(level + '|' + index)
+  console.log(level + '|' + sub.category+ '|' + category)
 
-  const getThreeRandomQuestions = (questionnaire) => {
-    // Shuffle the array
-    const shuffled = [...questionnaire].sort(() => 0.5 - Math.random());
-    // Get the first three items
+  const getFilteredRandomQuestions = (questionnaire, level, type) => {
+    // Filter questions based on level and type
+    const filteredQuestions = questionnaire.filter(
+      (q) => q.level === level && q.type === type
+    );
+
+    // Shuffle the filtered questions
+    const shuffled = [...filteredQuestions].sort(() => 0.5 - Math.random());
+
+    // Return the first three items
     return shuffled.slice(0, 3);
   };
 
-  const [questionnaire, setQuestionaire] = useState(getThreeRandomQuestions(env.QS_SAMPLE));
+  const [questionnaire, setQuestionaire] = useState(getFilteredRandomQuestions(
+    env.QS_SAMPLE2,
+    level,
+    sub.category
+  ));
+
+  // const [questionnaire, setQuestionaire] = useState(getThreeRandomQuestions(env.QS_SAMPLE2));
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selected, setSelected] = useState(false);
@@ -31,6 +43,7 @@ const SubQuestionnaireScreen = () => {
 
   useEffect(() => {
     localStorage.setItem('sub_answers', JSON.stringify(answers));
+    
   }, [answers, index]);
 
   useEffect(() => {
@@ -72,7 +85,7 @@ const SubQuestionnaireScreen = () => {
 
   return (
     <div className="container">
-        <span className='simple-heading'>[{level.toUpperCase()}]</span>
+        <span className='simple-heading'>[{level.toLowerCase() === "basic" ? "Foundation / Intermediate" : "Advanced / Highly Specialized"}]</span>
         <h1 className="title">{category}</h1>
         {sub&&<small>{sub.category} - {sub.title}</small>}
         <br></br>

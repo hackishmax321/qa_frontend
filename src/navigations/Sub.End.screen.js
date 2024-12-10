@@ -6,8 +6,9 @@ import axios from 'axios';
 const SubEndScreen = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { answers = [], questionnaire = [], category, level, sub } = location.state || {};
+  const { answers = [], questionnaire = [], category, level, sub, subIndex } = location.state || {};
   const [grades, setGrades ] = useState(['F', 'F', 'F', 'F', 'F']);
+  const [isPass, setPass] = useState(false);
   const [gradesType, setGradesType ] = useState([
     'Information & Data Literacy',
     'Com. & Collaboration',
@@ -32,6 +33,10 @@ const SubEndScreen = () => {
   const startQuestionnaire = () => {
     localStorage.removeItem('sub_answers');
     navigate('/dashboard');
+  };
+
+  const handleNavigation = (index, level, category, sub) => {
+    navigate('/study', { state: { index, level, category, sub } });
   };
 
   const retrievePrevious = async (qs, answers) => {
@@ -79,6 +84,7 @@ const SubEndScreen = () => {
     if (score == 1) {
       if(level=="basic"){
         updatedGrades[current] = "M"
+        setPass(true)
       } else if(level=="master") {
         updatedGrades[current] = "C"
       }
@@ -113,13 +119,13 @@ const SubEndScreen = () => {
 
   return (
     <div className="container">
-      <span className='simple-heading'>[{level.toUpperCase()}]</span>
+      <span className='simple-heading'>[{level.toLowerCase() === "basic" ? "Foundation / Intermediate" : "Advanced / Highly Specialized"}]</span>
       <h1 className="title">{category}</h1>
       {sub&&<small>{sub.category} - {sub.title}</small>}
       
       <br/>
       <div className="results-container">
-          <h3>Results</h3>
+          <h3>Results {isPass?<b className='ft-success'>- Passed</b>:<b className='ft-danger'>- Re Attempt</b>}</h3>
           
           <div className="card-container">
             <div className="google-button">
@@ -150,10 +156,17 @@ const SubEndScreen = () => {
           </div>
       </div>
       <div className="button-container">
+        {(!isPass)&&<button onClick={() => handleNavigation(subIndex, level, category, sub)} className="button button-long login-button no-underline">
+          Back to Learning
+        </button>}
+      </div>
+      <br></br>
+      <div className="button-container">
         <button onClick={startQuestionnaire} className="button button-long login-button no-underline">
           Proceed to Dashboard
         </button>
       </div>
+
     </div>
   );
 };

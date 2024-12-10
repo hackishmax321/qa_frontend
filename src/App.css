@@ -567,3 +567,11 @@ button:disabled {
 .w-14 {
   font-size: 14px;
 }
+
+.ft-danger {
+  color: rgb(161, 7, 7);
+}
+
+.ft-success {
+  color: rgb(10, 173, 45);
+}
