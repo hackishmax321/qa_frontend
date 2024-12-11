@@ -3007,6 +3007,1300 @@ const env = {
           points: 1.0,
           type: "3.4",
           level: "master"
+      },
+      {
+          title: "4.1 B1",
+          question: "Which of the following is the most secure way to protect your device from malware?",
+          options: [
+              "Downloading apps from any website",
+              "Installing antivirus software and keeping it updated",
+              "Clicking on pop-up ads",
+              "Ignoring software updates"
+          ],
+          answer: "Installing antivirus software and keeping it updated",
+          points: 1.0,
+          type: "4.1",
+          level: "basic"
+      },
+      {
+          title: "4.1 B2",
+          question: "What is malware?",
+          options: [
+              "Software that automatically updates programs",
+              "A virus or harmful program",
+              "A firewall that protects devices",
+              "A backup of personal files"
+          ],
+          answer: "A virus or harmful program",
+          points: 1.0,
+          type: "4.1",
+          level: "basic"
+      },
+      {
+          title: "4.1 B3",
+          question: "What is a good practice for keeping personal data safe online?",
+          options: [
+              "Sharing passwords only with trusted people",
+              "Using the same password for all accounts",
+              "Enabling two-factor authentication",
+              "Saving passwords in a text file"
+          ],
+          answer: "Enabling two-factor authentication",
+          points: 1.0,
+          type: "4.1",
+          level: "basic"
+      },
+      {
+          title: "4.1 B4",
+          question: "Which of the following is a method to protect electronic devices from unauthorized access?",
+          options: [
+              "Disabling Wi-Fi",
+              "Using a strong password",
+              "Regularly deleting temporary files",
+              "Closing all open applications"
+          ],
+          answer: "Using a strong password",
+          points: 1.0,
+          type: "4.1",
+          level: "basic"
+      },
+      {
+          title: "4.1 B5",
+          question: "What does the presence of a padlock in a web browser's address bar indicate?",
+          options: [
+              "That the website is secure and protected",
+              "That the site contains confidential information",
+              "That the website has been verified by authorities",
+              "That the website is under maintenance"
+          ],
+          answer: "That the website is secure and protected",
+          points: 1.0,
+          type: "4.1",
+          level: "basic"
+      },
+      // {
+      //     title: "4.1 B7",
+      //     question: "Which of the following is a common risk when using unsecured public Wi-Fi networks?",
+      //     options: [
+      //         "Slower downloads",
+      //         "Unauthorized access to personal data",
+      //         "Network service interruptions",
+      //         "Faster battery drain"
+      //     ],
+      //     answer: "Unauthorized access to personal data",
+      //     points: 1.0,
+      //     type: "4.1",
+      //     level: "basic"
+      // },
+      {
+          title: "4.1 M1",
+          question: "Which of the following methods can help protect your device from unauthorized access?",
+          options: [
+              "Leaving it unattended in public places",
+              "Using a strong, unique password or biometric security",
+              "Disabling all security features",
+              "Sharing your password with friends"
+          ],
+          answer: "Using a strong, unique password or biometric security",
+          points: 1.0,
+          type: "4.1",
+          level: "master"
+      },
+      {
+          title: "4.1 M2",
+          question: "What is the main difference between a man-in-the-middle attack and a phishing attack?",
+          options: [
+              "Phishing uses malware, while man-in-the-middle does not",
+              "Man-in-the-middle intercepts communications, phishing deceives the user",
+              "Phishing only targets mobile devices",
+              "Man-in-the-middle requires physical access to the device"
+          ],
+          answer: "Man-in-the-middle intercepts communications, phishing deceives the user",
+          points: 1.0,
+          type: "4.1",
+          level: "master"
+      },
+      {
+          title: "4.1 M3",
+          question: "How does an SSL certificate protect online communications?",
+          options: [
+              "It encrypts the connection between the browser and the server",
+              "It checks the loading speed of the website",
+              "It monitors for malware on the site",
+              "It verifies the identity of the users"
+          ],
+          answer: "It encrypts the connection between the browser and the server",
+          points: 1.0,
+          type: "4.1",
+          level: "master"
+      },
+      {
+          title: "4.1 M4",
+          question: "What is the difference between a VPN and a firewall?",
+          options: [
+              "The VPN encrypts traffic, the firewall monitors and filters it",
+              "The VPN blocks external attacks, the firewall encrypts communications",
+              "The VPN is used only in corporate networks, the firewall is for private users",
+              "The VPN prevents malware, the firewall prevents data theft"
+          ],
+          answer: "The VPN encrypts traffic, the firewall monitors and filters it",
+          points: 1.0,
+          type: "4.1",
+          level: "master"
+      },
+      {
+          title: "4.2 B1",
+          question: "How can you protect your personal data when using social media?",
+          options: [
+              "Sharing your location in every post",
+              "Using the same password for all accounts",
+              "Adjusting privacy settings to limit who can see your information",
+              "Accepting friend requests from everyone"
+          ],
+          answer: "Adjusting privacy settings to limit who can see your information",
+          points: 1.0,
+          type: "4.2",
+          level: "basic"
+      },
+      {
+          title: "4.2 B2",
+          question: "Which of the following best describes how companies use personal data under their privacy policy?",
+          options: [
+              "They use the data only to sell to third-party companies",
+              "They never store any personal data",
+              "They collect, store, and sometimes share personal data based on the user agreement",
+              "They delete personal data after one month"
+          ],
+          answer: "They collect, store, and sometimes share personal data based on the user agreement",
+          points: 1.0,
+          type: "4.2",
+          level: "basic"
+      },
+      {
+          title: "4.2 B3",
+          question: "What is Personally Identifiable Information (PII)?",
+          options: [
+              "Any information shared on social media",
+              "Information that can be used to identify an individual",
+              "General data about internet usage",
+              "Data stored in browser cookies"
+          ],
+          answer: "Information that can be used to identify an individual",
+          points: 1.0,
+          type: "4.2",
+          level: "basic"
+      },
+      {
+          title: "4.2 B4",
+          question: "Why is it important to read a service's privacy policy?",
+          options: [
+              "To improve your internet speed",
+              "To access hidden features of the service",
+              "To receive more personalized ads",
+              "To understand how your data is being collected and used"
+          ],
+          answer: "To understand how your data is being collected and used",
+          points: 1.0,
+          type: "4.2",
+          level: "basic"
+      },
+      {
+          title: "4.2 B5",
+          question: "Which of the following can help protect your privacy when using digital services?",
+          options: [
+              "Disabling two-factor authentication",
+              "Regularly clearing your browsing history",
+              "Sharing personal information without verifying the source",
+              "Accepting all permissions without review"
+          ],
+          answer: "Regularly clearing your browsing history",
+          points: 1.0,
+          type: "4.2",
+          level: "basic"
+      },
+      {
+          title: "4.2 B6",
+          question: "What is a common privacy risk when using social media?",
+          options: [
+              "Receiving too many friend requests",
+              "Sharing too much personal information publicly",
+              "Losing old posts",
+              "Following unwanted accounts"
+          ],
+          answer: "Sharing too much personal information publicly",
+          points: 1.0,
+          type: "4.2",
+          level: "basic"
+      },
+      
+      {
+          title: "4.2 M1",
+          question: "Which cryptographic protocol is widely used to ensure secure communication over a computer network?",
+          options: [
+              "HTTP",
+              "FTP",
+              "SSL/TLS",
+              "IMAP"
+          ],
+          answer: "SSL/TLS",
+          points: 1.0,
+          type: "4.2",
+          level: "master"
+      },
+      {
+          title: "4.2 M2",
+          question: "What is the main purpose of encryption when sending personal data online?",
+          options: [
+              "To increase internet speed",
+              "To protect data from unauthorized access",
+              "To enable unwanted data sharing with third parties",
+              "To store data on cloud services"
+          ],
+          answer: "To protect data from unauthorized access",
+          points: 1.0,
+          type: "4.2",
+          level: "master"
+      },
+      {
+          title: "4.2 M3",
+          question: "How does the General Data Protection Regulation (GDPR) impact the use of personal data by digital services?",
+          options: [
+              "It requires companies to get explicit consent before collecting personal data",
+              "It allows companies to share user data freely without consent",
+              "It only applies to financial institutions",
+              "It restricts companies from using any personal data"
+          ],
+          answer: "It requires companies to get explicit consent before collecting personal data",
+          points: 1.0,
+          type: "4.2",
+          level: "master"
+      },
+      {
+          title: "4.2 M4",
+          question: "What should you do if you receive an email asking for personal information but you're unsure of its legitimacy?",
+          options: [
+              "Reply immediately with the requested information",
+              "Follow the link presented in the e-mail",
+              "Verify the sender's authenticity before sharing any information",
+              "Forward the email to friends"
+          ],
+          answer: "Verify the sender's authenticity before sharing any information",
+          points: 1.0,
+          type: "4.2",
+          level: "master"
+      },
+      {
+          title: "4.2 M5",
+          question: "How can understanding a service's privacy policy help protect you from data misuse?",
+          options: [
+              "By allowing you to disable security features",
+              "By informing you about how the company collects, stores, and shares your data",
+              "By giving you access to all of the service's internal data",
+              "By preventing you from updating your privacy settings"
+          ],
+          answer: "By informing you about how the company collects, stores, and shares your data",
+          points: 1.0,
+          type: "4.2",
+          level: "master"
+      },
+      {
+          title: "4.2 M6",
+          question: "Which of the following is a common security feature used by digital services to protect personal data?",
+          options: [
+              "Automatically sharing user data with advertisers",
+              "Two-factor authentication (2FA)",
+              "Publicly displaying all user information",
+              "Allowing users to use weak passwords"
+          ],
+          answer: "Two-factor authentication (2FA)",
+          points: 1.0,
+          type: "4.2",
+          level: "master"
+      },
+      {
+          title: "4.3 B1",
+          question: "How can you minimize the impact of digital device usage on your health and well-being?",
+          options: [
+              "Using your device continuously without breaks",
+              "Setting screen time limits and taking regular breaks",
+              "Holding the device close to your eyes",
+              "Using devices only in dark rooms"
+          ],
+          answer: "Setting screen time limits and taking regular breaks",
+          points: 1.0,
+          type: "4.3",
+          level: "basic"
+      },
+      {
+          title: "4.3 B2",
+          question: "What is one of the main physical health risks when using digital devices for prolonged periods?",
+          options: [
+              "Increased creativity",
+              "Eye strain",
+              "Improved sleep quality",
+              "Increased muscle strength"
+          ],
+          answer: "Eye strain",
+          points: 1.0,
+          type: "4.3",
+          level: "basic"
+      },
+      {
+          title: "4.3 B3",
+          question: "Which of the following measures can help prevent cyberbullying?",
+          options: [
+              "Being aware of privacy settings on social media",
+              "Sharing passwords with friends",
+              "Turning off the internet when receiving a harmful message",
+              "Ignoring all online interactions"
+          ],
+          answer: "Being aware of privacy settings on social media",
+          points: 1.0,
+          type: "4.3",
+          level: "basic"
+      },
+      {
+          title: "4.3 B4",
+          question: "How can one reduce the risk of technology-related stress?",
+          options: [
+              "Use digital devices without taking breaks",
+              "Use technology only during the day",
+              "Create a digital routine that includes regular breaks and offline time",
+              "Minimize the use of email"
+          ],
+          answer: "Create a digital routine that includes regular breaks and offline time",
+          points: 1.0,
+          type: "4.3",
+          level: "basic"
+      },
+      {
+          title: "4.3 B5",
+          question: "Which of the following tools can help protect psychological well-being when using digital technologies?",
+          options: [
+              "Using blue light filters",
+              "Increasing screen resolution",
+              "Buying more expensive devices",
+              "Turning off app notifications during rest hours"
+          ],
+          answer: "Turning off app notifications during rest hours",
+          points: 1.0,
+          type: "4.3",
+          level: "basic"
+      },
+      {
+          title: "4.3 B6",
+          question: "Which of the following digital technologies is particularly effective in promoting social inclusion for people with disabilities?",
+          options: [
+              "Virtual reality",
+              "Voice recognition software",
+              "Artificial intelligence for finance",
+              "Entertainment apps"
+          ],
+          answer: "Voice recognition software",
+          points: 1.0,
+          type: "4.3",
+          level: "basic"
+      },
+      {
+          title: "4.3 M1",
+          question: "What is a common sign of cyberbullying that one should be aware of in digital environments?",
+          options: [
+              "Positive feedback on social media posts",
+              "Repeated negative comments or threats",
+              "Invitations to online study groups",
+              "Sharing of educational resources"
+          ],
+          answer: "Repeated negative comments or threats",
+          points: 1.0,
+          type: "4.3",
+          level: "master"
+      },
+      {
+          title: "4.3 M2",
+          question: "Why is awareness of privacy and security settings on social platforms important for mental health?",
+          options: [
+              "It ensures that only approved contacts see your information",
+              "It prevents information overload",
+              "It prevents identity theft",
+              "It reduces anxiety caused by unwanted interactions and promotes mental peace"
+          ],
+          answer: "It reduces anxiety caused by unwanted interactions and promotes mental peace",
+          points: 1.0,
+          type: "4.3",
+          level: "master"
+      },
+      {
+          title: "4.3 M3",
+          question: "Which of the following best describes how digital competence can contribute to mental and social well-being?",
+          options: [
+              "It enables users to browse the internet more quickly",
+              "It helps individuals recognize and avoid online risks, like misinformation or harmful content",
+              "It allows for constant social media interaction without emotional consequences",
+              "It ensures that all online content is filtered and safe to access"
+          ],
+          answer: "It helps individuals recognize and avoid online risks, like misinformation or harmful content",
+          points: 1.0,
+          type: "4.3",
+          level: "master"
+      },
+      {
+          title: "4.3 M4",
+          question: "What action can help create a safe and inclusive digital environment for others?",
+          options: [
+              "Sharing friends' personal information on public platforms",
+              "Reporting inappropriate content or behaviors",
+              "Avoiding interaction with strangers",
+              "Ignoring negative messages to avoid conflict"
+          ],
+          answer: "Reporting inappropriate content or behaviors",
+          points: 1.0,
+          type: "4.3",
+          level: "master"
+      },
+      {
+          title: "4.3 M5",
+          question: "What is the effect of prolonged social media use on mental health, according to several studies?",
+          options: [
+              "It can lead to better self-esteem",
+              "It improves social skills",
+              "It can increase the risk of depression and anxiety",
+              "It reduces loneliness in virtual interactions"
+          ],
+          answer: "It can increase the risk of depression and anxiety",
+          points: 1.0,
+          type: "4.3",
+          level: "master"
+      },
+      {
+          title: "4.3 M6",
+          question: "How can digital technologies promote social inclusion for vulnerable groups?",
+          options: [
+              "By allowing greater public exposure of their vulnerabilities",
+              "By providing safe platforms for support and communication with others",
+              "By limiting access to social networks for security reasons",
+              "By allowing only professionals to interact with these groups"
+          ],
+          answer: "By providing safe platforms for support and communication with others",
+          points: 1.0,
+          type: "4.3",
+          level: "master"
+      },
+      {
+          title: "4.4 B1",
+          question: "Which of the following practices helps in protecting the environment?",
+          options: [
+              "Disposing of electronic waste improperly",
+              "Using energy-efficient devices and recycling old electronics",
+              "Buying new devices frequently",
+              "Ignoring software updates to save power"
+          ],
+          answer: "Using energy-efficient devices and recycling old electronics",
+          points: 1.0,
+          type: "4.4",
+          level: "basic"
+      },
+      {
+          title: "4.4 B2",
+          question: "Which of the following contributes to the environmental impact of digital technologies?",
+          options: [
+              "Storing data on personal hard drives",
+              "Using software with automatic updates",
+              "Charging devices with solar power",
+              "High energy consumption of data centers"
+          ],
+          answer: "High energy consumption of data centers",
+          points: 1.0,
+          type: "4.4",
+          level: "basic"
+      },
+      {
+          title: "4.4 B3",
+          question: "What does the term 'digital carbon footprint' refer to?",
+          options: [
+              "The energy required to operate physical servers",
+              "The total greenhouse gas emissions caused by digital activities",
+              "The amount of data a device can store on carbon",
+              "The number of digital devices a person owns"
+          ],
+          answer: "The total greenhouse gas emissions caused by digital activities",
+          points: 1.0,
+          type: "4.4",
+          level: "basic"
+      },
+      {
+          title: "4.4 B4",
+          question: "Which of the following practices helps reduce e-waste?",
+          options: [
+              "Regularly replacing older devices",
+              "Recycling or donating old electronic devices",
+              "Throwing old devices in the bin",
+              "Using only single-use batteries"
+          ],
+          answer: "Recycling or donating old electronic devices",
+          points: 1.0,
+          type: "4.4",
+          level: "basic"
+      },
+      {
+          title: "4.4 B5",
+          question: "Which component of digital technology has the highest environmental impact?",
+          options: [
+              "The energy consumed by data centers",
+              "The screen resolution of a smartphone",
+              "The storage capacity of a hard drive",
+              "The design of user interfaces"
+          ],
+          answer: "The energy consumed by data centers",
+          points: 1.0,
+          type: "4.4",
+          level: "basic"
+      },
+      {
+          title: "4.4 B6",
+          question: "How can individuals reduce their digital carbon footprint?",
+          options: [
+              "Using multiple devices at once",
+              "Turning off devices when not in use",
+              "Frequently upgrading to the latest models",
+              "Deleting unused apps"
+          ],
+          answer: "Turning off devices when not in use",
+          points: 1.0,
+          type: "4.4",
+          level: "basic"
+      },
+      
+      {
+          title: "4.4 M1",
+          question: "What practice can help minimize the environmental impact of electronic waste?",
+          options: [
+              "Frequently replacing electronic devices",
+              "Disposing of electronics in regular trash bins",
+              "Recycling old electronics properly",
+              "Storing old devices in drawers"
+          ],
+          answer: "Recycling old electronics properly",
+          points: 1.0,
+          type: "4.4",
+          level: "master"
+      },
+      {
+          title: "4.4 M2",
+          question: "What is the main environmental concern regarding the production of digital devices?",
+          options: [
+              "High energy consumption during use",
+              "The extraction of rare minerals used in manufacturing",
+              "The short lifespan of devices",
+              "The use of recyclable packaging materials"
+          ],
+          answer: "The extraction of rare minerals used in manufacturing",
+          points: 1.0,
+          type: "4.4",
+          level: "master"
+      },
+      {
+          title: "4.4 M3",
+          question: "Which of the following strategies can reduce the environmental impact of software development?",
+          options: [
+              "Developing more complex applications",
+              "Optimizing code for energy efficiency",
+              "Requiring frequent hardware upgrades",
+              "Increasing the number of users"
+          ],
+          answer: "Optimizing code for energy efficiency",
+          points: 1.0,
+          type: "4.4",
+          level: "master"
+      },
+      {
+          title: "4.4 M4",
+          question: "How does the production of semiconductors impact the environment?",
+          options: [
+              "It generates significant amounts of e-waste",
+              "It requires large quantities of water and energy for manufacturing",
+              "It causes increased recycling costs",
+              "It reduces the demand for rare earth minerals"
+          ],
+          answer: "It requires large quantities of water and energy for manufacturing",
+          points: 1.0,
+          type: "4.4",
+          level: "master"
+      },
+      {
+          title: "4.4 M5",
+          question: "Which of the following is a key factor in the environmental sustainability of digital services?",
+          options: [
+              "The number of users on the platform",
+              "The energy efficiency of the underlying infrastructure",
+              "The amount of memory in user devices",
+              "The type of internet connection used"
+          ],
+          answer: "The energy efficiency of the underlying infrastructure",
+          points: 1.0,
+          type: "4.4",
+          level: "master"
+      },
+      {
+          title: "4.4 M6",
+          question: "Which of the following digital practices could lead to higher environmental impact?",
+          options: [
+              "Using cloud storage powered by renewable energy",
+              "Implementing energy-saving features in software",
+              "Keeping large amounts of unused data in online servers",
+              "Running data centers on energy-efficient cooling systems"
+          ],
+          answer: "Keeping large amounts of unused data in online servers",
+          points: 1.0,
+          type: "4.4",
+          level: "master"
+      },
+      
+      {
+          title: "5.1 B1",
+          question: "What is the first step in troubleshooting a device that won’t turn on?",
+          options: [
+              "Replace the battery",
+              "Check the power supply",
+              "Reset the device",
+              "Update the software"
+          ],
+          answer: "Check the power supply",
+          points: 1.0,
+          type: "5.1",
+          level: "beginner"
+      },
+      {
+          title: "5.1 B2",
+          question: "What should you do first when a device is not working as expected?",
+          options: [
+              "Panic and call technical support",
+              "Observe the issue and take note of any error messages",
+              "Restart the device without checking the issue"
+          ],
+          answer: "Observe the issue and take note of any error messages",
+          points: 1.0,
+          type: "5.1",
+          level: "beginner"
+      },
+      {
+          title: "5.1 B3",
+          question: "Which of the following is a common cause of a device overheating?",
+          options: [
+              "Too many applications running",
+              "Low battery",
+              "High-speed Internet",
+              "Outdated software"
+          ],
+          answer: "Too many applications running",
+          points: 1.0,
+          type: "5.1",
+          level: "beginner"
+      },
+      {
+          title: "5.1 B4",
+          question: "A device that is stuck on a loading screen may require a factory reset to resolve the issue.",
+          options: [
+              "True",
+              "False"
+          ],
+          answer: "True",
+          points: 1.0,
+          type: "5.1",
+          level: "beginner"
+      },
+      {
+          title: "5.1 B5",
+          question: "When experiencing issues with software, the first step to take is to check for ______ updates, as they often contain bug fixes.",
+          options: [
+              "Hardware",
+              "Screen",
+              "Software",
+              "App"
+          ],
+          answer: "Software",
+          points: 1.0,
+          type: "5.1",
+          level: "beginner"
+      },
+      {
+          title: "5.1 B6",
+          question: "What tool can help diagnose network issues?",
+          options: [
+              "Task Manager",
+              "Device Manager",
+              "Command Prompt",
+              "Control Panel"
+          ],
+          answer: "Command Prompt",
+          points: 1.0,
+          type: "5.1",
+          level: "beginner"
+      },
+      {
+          title: "5.1 M1",
+          question: "You are unable to access a website, and other devices on the same network can. What is the most logical next step?",
+          options: [
+              "Restart the router",
+              "Clear your browser cache",
+              "Reinstall the operating system",
+              "Check for malware"
+          ],
+          answer: "Clear your browser cache",
+          points: 1.0,
+          type: "5.1",
+          level: "master"
+      },
+      {
+          title: "5.1 M2",
+          question: "Which of the following commands is used to test the reachability of a host on a network?",
+          options: [
+              "ipconfig",
+              "ping",
+              "tracert",
+              "netstat"
+          ],
+          answer: "ping",
+          points: 1.0,
+          type: "5.1",
+          level: "master"
+      },
+      {
+          title: "5.1 M3",
+          question: "When diagnosing an application that crashes randomly, which logs are the most useful?",
+          options: [
+              "Event Viewer (Windows) or Console Logs (Mac)",
+              "Device Manager Logs",
+              "Disk Activity Logs",
+              "Screen Brightness Logs"
+          ],
+          answer: "Event Viewer (Windows) or Console Logs (Mac)",
+          points: 1.0,
+          type: "5.1",
+          level: "master"
+      },
+      {
+          title: "5.1 M4",
+          question: "Which of the following is NOT a likely cause of a Wi-Fi connectivity issue?",
+          options: [
+              "Network interference from other devices",
+              "Incorrect password entry",
+              "Disabled Ethernet port",
+              "Router firmware being outdated"
+          ],
+          answer: "Disabled Ethernet port",
+          points: 1.0,
+          type: "5.1",
+          level: "master"
+      },
+      {
+          title: "5.1 M5",
+          question: "If your system displays the error 'No Bootable Device Found,' what is the most probable cause?",
+          options: [
+              "A disconnected hard drive",
+              "A software conflict",
+              "Low battery power",
+              "An outdated operating system"
+          ],
+          answer: "A disconnected hard drive",
+          points: 1.0,
+          type: "5.1",
+          level: "master"
+      },
+      {
+          title: "5.1 M6",
+          question: "When encountering a 'blue screen of death' (BSOD) on Windows, what is the most critical first step?",
+          options: [
+              "Note down the error code displayed on the screen",
+              "Perform a clean reinstallation of the operating system",
+              "Replace the hardware immediately"
+          ],
+          answer: "Note down the error code displayed on the screen",
+          points: 1.0,
+          type: "5.1",
+          level: "master"
+      },
+      {
+          title: "5.2 B1",
+          question: "Which of the following digital tools would best support a user with limited mobility in their hands?",
+          options: [
+              "A traditional keyboard",
+              "A touch screen",
+              "Voice recognition software",
+              "A mouse with high sensitivity settings"
+          ],
+          answer: "Voice recognition software",
+          points: 1.0,
+          type: "5.2",
+          level: "basic"
+      },
+      {
+          title: "5.2 B2",
+          question: "Is the following sentence True or False? “Screen readers are designed to help users with limited mobility by reading aloud the contents on the screen.”",
+          options: [
+              "True",
+              "False"
+          ],
+          answer: "False",
+          points: 1.0,
+          type: "5.2",
+          level: "basic"
+      },
+      {
+          title: "5.2 B3",
+          question: "Which feature can help users with visual impairments use digital tools more effectively?",
+          options: [
+              "Night mode",
+              "Screen reader functionality",
+              "High-performance CPU"
+          ],
+          answer: "Screen reader functionality",
+          points: 1.0,
+          type: "5.2",
+          level: "basic"
+      },
+      {
+          title: "5.2 B4",
+          question: "If you want to ensure your digital workspace has the correct accessibility options enabled, where should you start?",
+          options: [
+              "Update your operating system",
+              "Check accessibility settings on your device",
+              "Disable all system notifications",
+              "Increase screen brightness"
+          ],
+          answer: "Check accessibility settings on your device",
+          points: 1.0,
+          type: "5.2",
+          level: "basic"
+      },
+      {
+          title: "5.2 B5",
+          question: "Is the following sentence true or false? “Using dark mode on a device can reduce eye strain for some users.”",
+          options: [
+              "True",
+              "False"
+          ],
+          answer: "True",
+          points: 1.0,
+          type: "5.2",
+          level: "basic"
+      },
+      {
+          title: "5.2 B6",
+          question: "Which of the following best describes a platform that facilitates non-commercial transactions like donating or gifting?",
+          options: [
+              "E-commerce Website",
+              "Social Media Platform",
+              "Crowdfunding Site",
+              "Online Marketplace"
+          ],
+          answer: "Crowdfunding Site",
+          points: 1.0,
+          type: "5.2",
+          level: "basic"
+      },
+      {
+          title: "5.2 M1",
+          question: "In the context of online transactions, what is the primary function of blockchain technology in enhancing transaction security?",
+          options: [
+              "It centralises user data for easier access.",
+              "It creates a public ledger that records all transactions immutably.",
+              "It increases the speed of transactions by eliminating verification steps.",
+              "It allows for unlimited data storage without costs."
+          ],
+          answer: "It creates a public ledger that records all transactions immutably.",
+          points: 1.0,
+          type: "5.2",
+          level: "master"
+      },
+      {
+          title: "5.2 M2",
+          question: "What does UX customization typically focus on in advanced digital environments?",
+          options: [
+              "Hardware compatibility",
+              "Enhancing user workflows and accessibility based on specific user preferences",
+              "Reducing the number of available options in a tool"
+          ],
+          answer: "Enhancing user workflows and accessibility based on specific user preferences",
+          points: 1.0,
+          type: "5.2",
+          level: "master"
+      },
+      {
+          title: "5.2 M3",
+          question: "If someone with colour blindness needs to distinguish between colours on a webpage, which adjustment would be most beneficial?",
+          options: [
+              "Lower the screen brightness",
+              "Enable high contrast or colour correction options in accessibility settings",
+              "Use a stylus to highlight text",
+              "Update the browser"
+          ],
+          answer: "Enable high contrast or colour correction options in accessibility settings",
+          points: 1.0,
+          type: "5.2",
+          level: "master"
+      },
+      {
+          title: "5.2 M4",
+          question: "Is the following sentence true or false? “Adaptive keyboards can be customised to support users with limited mobility, such as by enlarging key sizes or using predictive text.”",
+          options: [
+              "True",
+              "False"
+          ],
+          answer: "True",
+          points: 1.0,
+          type: "5.2",
+          level: "master"
+      },
+      {
+          title: "5.2 M5",
+          question: "Which digital tool would best support a user who struggles with reading small print on screens due to visual impairment?",
+          options: [
+              "Voice-to-text software",
+              "A screen magnifier or zoom function",
+              "High contrast mode",
+              "A large-print keyboard"
+          ],
+          answer: "A screen magnifier or zoom function",
+          points: 1.0,
+          type: "5.2",
+          level: "master"
+      },
+      {
+          title: "5.2 M6",
+          question: "Is the following sentence true or false? “Using high-contrast mode improves accessibility for all users, regardless of visual impairments.”",
+          options: [
+              "True",
+              "False"
+          ],
+          answer: "False",
+          points: 1.0,
+          type: "5.2",
+          level: "master"
+      },
+      {
+          title: "5.3 B1",
+          question: "Which digital tool would be most effective for brainstorming ideas collaboratively in real-time?",
+          options: [
+              "A word processor",
+              "A spreadsheet application",
+              "An online mind-mapping tool",
+              "A photo editing program"
+          ],
+          answer: "An online mind-mapping tool",
+          points: 1.0,
+          type: "5.3",
+          level: "basic"
+      },
+      {
+          title: "5.3 B2",
+          question: "Which IoT technology is commonly used to optimise energy consumption in smart homes?",
+          options: [
+              "Smart Thermostats",
+              "Virtual Reality Headsets",
+              "Bluetooth Speakers",
+              "Fitness Trackers"
+          ],
+          answer: "Smart Thermostats",
+          points: 1.0,
+          type: "5.3",
+          level: "basic"
+      },
+      {
+          title: "5.3 B3",
+          question: "Which of the following devices is an example of an IoT device?",
+          options: [
+              "Desktop computer",
+              "Smart refrigerator",
+              "Traditional alarm clock",
+              "Flip phone"
+          ],
+          answer: "Smart refrigerator",
+          points: 1.0,
+          type: "5.3",
+          level: "basic"
+      },
+      {
+          title: "5.3 B4",
+          question: "Which tool would be most suitable for designing a presentation?",
+          options: [
+              "Microsoft Excel",
+              "Canva",
+              "Zoom"
+          ],
+          answer: "Canva",
+          points: 1.0,
+          type: "5.3",
+          level: "basic"
+      },
+      {
+          title: "5.3 B5",
+          question: "Is the following sentence true or false? “Online brainstorming tools do not allow for collaborative contributions and are only useful for individual work.”",
+          options: [
+              "True",
+              "False"
+          ],
+          answer: "False",
+          points: 1.0,
+          type: "5.3",
+          level: "basic"
+      },
+      {
+          title: "5.3 B6",
+          question: "Which of the following digital tools is most effective for prototyping and validating a new product idea quickly in a startup environment?",
+          options: [
+              "Word Processing Software",
+              "Project Management Tools",
+              "3D Printing Technology",
+              "Social Media Analytics"
+          ],
+          answer: "3D Printing Technology",
+          points: 1.0,
+          type: "5.3",
+          level: "basic"
+      },
+      {
+          title: "5.3 M1",
+          question: "Which of the following platforms is primarily known for providing comprehensive tools for building and managing IoT applications, including device management, data analytics, and security features?",
+          options: [
+              "AWS IoT Core",
+              "Microsoft Word",
+              "Adobe Photoshop",
+              "Salesforce CRM"
+          ],
+          answer: "AWS IoT Core",
+          points: 1.0,
+          type: "5.3",
+          level: "master"
+      },
+      {
+          title: "5.3 M2",
+          question: "Which of the following digital tools is most beneficial for managing and executing project plans to transform an idea into actionable steps?",
+          options: [
+              "Graphic Design Software",
+              "Cloud-Based Project Management Tools",
+              "Blogging Platforms",
+              "Email Marketing Services"
+          ],
+          answer: "Cloud-Based Project Management Tools",
+          points: 1.0,
+          type: "5.3",
+          level: "master"
+      },
+      {
+          title: "5.3 M3",
+          question: "For collaborative, creative problem-solving on a software project, which combination of tools is likely the most effective?",
+          options: [
+              "Task management tool and collaborative coding platform (like GitHub)",
+              "Email and offline calendar",
+              "Traditional file storage and spreadsheet software",
+              "Note-taking app and social media"
+          ],
+          answer: "Task management tool and collaborative coding platform (like GitHub)",
+          points: 1.0,
+          type: "5.3",
+          level: "master"
+      },
+      {
+          title: "5.3 M4",
+          question: "When designing a digital platform for community resource sharing, which of the following considerations is most crucial to ensure user trust and engagement?",
+          options: [
+              "High-quality graphics and interface design",
+              "Robust data privacy policies and transparent user agreements",
+              "Integration with social media for marketing",
+              "Complicated user registration processes"
+          ],
+          answer: "Robust data privacy policies and transparent user agreements",
+          points: 1.0,
+          type: "5.3",
+          level: "master"
+      },
+      {
+          title: "5.3 M5",
+          question: "Which of the following technologies can be used to prototype and test innovative product ideas?",
+          options: [
+              "3D modeling software like Blender",
+              "Virtual reality environments",
+              "AI-driven generative design tools",
+              "All of the above"
+          ],
+          answer: "All of the above",
+          points: 1.0,
+          type: "5.3",
+          level: "master"
+      },
+      {
+          title: "5.3 M6",
+          question: "In a collaborative problem-solving environment, which of the following practices is most effective for fostering diverse perspectives and enhancing team creativity?",
+          options: [
+              "Establishing a strict hierarchy in decision-making",
+              "Conducting regular brainstorming sessions without evaluation",
+              "Limiting participation to only subject matter experts",
+              "Encouraging open dialogue and using design thinking methodologies"
+          ],
+          answer: "Encouraging open dialogue and using design thinking methodologies",
+          points: 1.0,
+          type: "5.3",
+          level: "master"
+      },
+      {
+          title: "5.4 B1",
+          question: "Which of the following is a crucial first step in identifying your digital competence gaps?",
+          options: [
+              "Asking for feedback from others",
+              "Self-assessment of current skills",
+              "Taking a certification exam",
+              "Focusing only on emerging technologies"
+          ],
+          answer: "Self-assessment of current skills",
+          points: 1.0,
+          type: "5.4",
+          level: "basic"
+      },
+      {
+          title: "5.4 B2",
+          question: "Is the following sentence true or false? Identifying digital competence gaps is only relevant for technology-focused roles.",
+          options: [
+              "True",
+              "False"
+          ],
+          answer: "False",
+          points: 1.0,
+          type: "5.4",
+          level: "basic"
+      },
+      {
+          title: "5.4 B3",
+          question: "What is cybersecurity?",
+          options: [
+              "Understanding online threats and protection measures",
+              "Ability to use online tools to create content",
+              "Recognising credible information from digital source"
+          ],
+          answer: "Recognising credible information from digital source",
+          points: 1.0,
+          type: "5.4",
+          level: "basic"
+      },
+      {
+          title: "5.4 B4",
+          question: "What is the purpose of identifying digital competence gaps?",
+          options: [
+              "To keep up with others' skills",
+              "To stay up-to-date with evolving technologies",
+              "To complete mandatory certifications",
+              "To avoid using technology altogether"
+          ],
+          answer: "To stay up-to-date with evolving technologies",
+          points: 1.0,
+          type: "5.4",
+          level: "basic"
+      },
+      {
+          title: "5.4 B5",
+          question: "When helping someone identify their digital competence gaps, what is the best approach?",
+          options: [
+              "Assume they need no assistance with basic digital skills",
+              "Ask about their specific digital tasks and challenges",
+              "Give them a list of digital tasks to complete alone",
+              "Avoid any feedback and focus only on technical skills"
+          ],
+          answer: "Ask about their specific digital tasks and challenges",
+          points: 1.0,
+          type: "5.4",
+          level: "basic"
+      },
+      {
+          title: "5.4 B6",
+          question: "Is the following sentence true or false? Once you’ve identified your digital competence gaps, the next step is to immediately start advanced training programs without considering basic skills.",
+          options: [
+              "True",
+              "False"
+          ],
+          answer: "False",
+          points: 1.0,
+          type: "5.4",
+          level: "basic"
+      },
+      {
+          title: "5.4 M1",
+          question: "Which of the following is the most effective first step in identifying your digital competence gaps?",
+          options: [
+              "Assume your skills are sufficient for all tasks.",
+              "Use a self-assessment tool like the Digital Competence Framework (DigComp)",
+              "Wait for someone to point out your weaknesses."
+          ],
+          answer: "Use a self-assessment tool like the Digital Competence Framework (DigComp)",
+          points: 1.0,
+          type: "5.4",
+          level: "master"
+      },
+      {
+          title: "5.4 M2",
+          question: "What is a recommended way to stay updated with digital trends?",
+          options: [
+              "Regularly attend conferences, online courses, and webinars",
+              "Rely solely on past experience",
+              "Avoid social media and digital news",
+              "Wait for employers to provide mandatory training"
+          ],
+          answer: "Regularly attend conferences, online courses, and webinars",
+          points: 1.0,
+          type: "5.4",
+          level: "master"
+      },
+      {
+          title: "5.4 M3",
+          question: "Is the following sentence true or false? Supporting others with digital competence involves assessing their abilities and encouraging continual skill development.",
+          options: [
+              "True",
+              "False"
+          ],
+          answer: "True",
+          points: 1.0,
+          type: "5.4",
+          level: "master"
+      },
+      {
+          title: "5.4 M4",
+          question: "Which of the following describes an approach to monitor and improve your digital competence over time?",
+          options: [
+              "Only use free, basic courses",
+              "Identify goals, seek feedback, and evaluate progress periodically",
+              "Rely on informal knowledge from colleagues",
+              "Follow the same routine tasks daily without change"
+          ],
+          answer: "Identify goals, seek feedback, and evaluate progress periodically",
+          points: 1.0,
+          type: "5.4",
+          level: "master"
+      },
+      {
+          title: "5.4 M5",
+          question: "To help a colleague improve their digital competence, what should be avoided?",
+          options: [
+              "Offering resources for structured learning",
+              "Setting clear learning objectives",
+              "Allowing them to skip foundational skills",
+              "Encouraging regular feedback sessions"
+          ],
+          answer: "Allowing them to skip foundational skills",
+          points: 1.0,
+          type: "5.4",
+          level: "master"
+      },
+      {
+          title: "5.4 M6",
+          question: "Which of the following is not true?",
+          options: [
+              "Online courses provide structure for developing specific skills",
+              "Digital mentor provides personalised advice and insights on strengths/weaknesses",
+              "Industry news subscription keeps knowledge fresh with current updates",
+              "Digital mentor keeps knowledge fresh with current updates"
+          ],
+          answer: "Digital mentor keeps knowledge fresh with current updates",
+          points: 1.0,
+          type: "5.4",
+          level: "master"
       }
 
 
