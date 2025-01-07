@@ -9,6 +9,8 @@ const SubEndScreen = () => {
   const { answers = [], questionnaire = [], category, level, sub, subIndex } = location.state || {};
   const [grades, setGrades ] = useState(['F', 'F', 'F', 'F', 'F']);
   const [isPass, setPass] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const [gradesType, setGradesType ] = useState([
     'Information & Data Literacy',
     'Com. & Collaboration',
@@ -31,8 +33,12 @@ const SubEndScreen = () => {
   };
 
   const startQuestionnaire = () => {
-    localStorage.removeItem('sub_answers');
-    navigate('/dashboard');
+    setLoading(true); // Show spinner
+    setTimeout(() => {
+      localStorage.removeItem('sub_answers');
+      navigate('/dashboard');
+      setLoading(false); // Hide spinner after navigation
+    }, 5000);
   };
 
   const handleNavigation = (index, level, category, sub) => {
@@ -82,9 +88,10 @@ const SubEndScreen = () => {
     let score = (correctCount / completedCount);
     
     if (score == 1) {
+      setPass(true)
       if(level=="basic"){
         updatedGrades[current] = "M"
-        setPass(true)
+        
       } else if(level=="master") {
         updatedGrades[current] = "C"
       }
@@ -162,9 +169,13 @@ const SubEndScreen = () => {
       </div>
       <br></br>
       <div className="button-container">
-        <button onClick={startQuestionnaire} className="button button-long login-button no-underline">
-          Proceed to Dashboard
-        </button>
+        <button onClick={startQuestionnaire} className="button button-long login-button no-underline" disabled={loading}>
+        {loading ? (
+          <div className="loading-icon">
+            <div className="spinner"></div>
+          </div>
+        ) : 'Proceed to Dashboard'}
+      </button>
       </div>
 
     </div>

@@ -216,13 +216,13 @@ const CreateAccount = () => {
           <option value="Female">Female</option>
           <option value="Other">Other</option>
         </select>
-        <input
+        {/* <input
           type="text"
           placeholder="ADDRESS"
           className="input-field"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
-        />
+        /> */}
         
         <input
           type="text"
@@ -238,20 +238,20 @@ const CreateAccount = () => {
           value={university}
           onChange={(e) => setUniversity(e.target.value)}
         />
-        <input
+        {/* <input
           type="text"
           placeholder="UNIVERSITY ID"
           className="input-field"
           value={universityId}
           onChange={(e) => setUniversityId(e.target.value)}
-        />
-        <input
+        /> */}
+        {/* <input
           type="text"
           placeholder="CONTACT NUMBER"
           className="input-field"
           value={contactNumber}
           onChange={(e) => setContactNumber(e.target.value)}
-        />
+        /> */}
         <div className="password-container">
           <input
             type="password"
