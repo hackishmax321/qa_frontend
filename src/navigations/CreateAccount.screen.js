@@ -91,15 +91,15 @@ const CreateAccount = () => {
       return;
     }
 
-    if ( !email || !password || !dob || !gender || !country || !address) {
+    if ( !email || !password || !dob || !gender || !country) {
       Notiflix.Notify.failure('All fields are required');
       return;
     }
 
-    if (!validateContact(contactNumber)) {
-      Notiflix.Notify.failure('Contact Number needs to be 10 characters');
-      return;
-    }
+    // if (!validateContact(contactNumber)) {
+    //   Notiflix.Notify.failure('Contact Number needs to be 10 characters');
+    //   return;
+    // }
 
     if (password !== retypePassword) {
       Notiflix.Notify.failure('Passwords do not match');
