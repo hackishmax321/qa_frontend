@@ -106,6 +106,9 @@ const LoginScreen = () => {
 
   return (
     <div className="container">
+      <div className="image-container top-img">
+        <img src={`${process.env.PUBLIC_URL}/images/Picturec.png`} height={80} alt="Welcome" className="top-image" />
+      </div>
       <h1 className="title">Login</h1>
       <p className="subtitle">Welcome back!</p>
       <form className="form" onSubmit={submitAction}>
